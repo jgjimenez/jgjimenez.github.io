@@ -4,8 +4,10 @@
     padding: 16px;
     text-align: center;
   }
+  
   .header img {
-    width: 40px;
+    object-fit: contain; 
+    width: 40px; 
     height: 40px;
     margin: 10px;
   }
