@@ -1,13 +1,13 @@
 .logos h2 {
-  text-align: center; /* Centrar el texto */
-  font-size: 1.8rem; /* Reducir el tamaño del texto */
-  font-weight: 600; /* Asegurar que el título tenga un buen peso */
-  margin-bottom: 20px; /* Añadir un poco de espacio debajo del título */
-  color: #333; /* Un color para que se vea bien */
+  text-align: center; 
+  font-size: 1.8rem; 
+  font-weight: 600; 
+  margin-bottom: 20px;
+  color: #333; 
 }
 
 .hero {
-  position: relative; /* Esto es importante para que el overlay se ajuste al tamaño del .hero */
+  position: relative; 
   height: 100vh;
   display: flex;
   align-items: center;
@@ -23,17 +23,17 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Color negro con opacidad del 50% */
-  z-index: 1; /* La superposición está detrás del contenido, pero encima de la imagen */
+  background-color: rgba(0, 0, 0, 0.5); 
+  z-index: 1; 
 }
 
 .hero .container {
   position: relative;
-  z-index: 2; /* Esto coloca el texto por encima del overlay */
+  z-index: 2; 
 }
 
 .text-white {
-  color: white; /* Asegura que el texto sea blanco */
+  color: white; 
 }
 
 .hero h1 {
@@ -83,49 +83,48 @@ footer p {
 }
 
 .carousel-images img {
-  max-height: 150px; /* Ajusta la altura máxima a tu preferencia */
-  max-width: 100%; /* Las imágenes no ocuparán más del 100% del ancho del contenedor */
-  object-fit: contain; /* Mantiene la relación de aspecto original */
-  margin: 0 auto; /* Centra las imágenes en el contenedor */
-  display: block; /* Asegura que se comporten como bloque para centrarse correctamente */
+  max-height: 150px; 
+  max-width: 100%; 
+  object-fit: contain; 
+  margin: 0 auto; 
+  display: block;
 }
 
 #about {
-  background-color: #f8f9fa; /* Fondo claro y profesional */
-  padding: 60px 0; /* Espacio superior e inferior */
+  background-color: #f8f9fa; 
+  padding: 60px 0; 
 }
 
 #about h2 {
   font-size: 2.5rem;
   font-weight: 600;
-  color: #333; /* Color fuerte y profesional */
+  color: #333; 
   margin-bottom: 20px;
 }
 
 #about p {
-  text-align: justify; /* Justificar el texto */
-  margin-bottom: 15px; /* Espacio inferior entre los párrafos */
+  text-align: justify;
+  margin-bottom: 15px; 
 }
 
 #about img {
-  max-width: 60%; /* Limita el ancho máximo de la imagen */
-  height: auto; /* Mantiene la proporción de la imagen */
-  border-radius: 10px; /* Bordes redondeados */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
-  display: block; /* Asegura que la imagen se centre */
-  margin: 0 auto; /* Centra la imagen horizontalmente */
+  max-width: 60%; 
+  height: auto;
+  border-radius: 10px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: block; 
+  margin: 0 auto; 
 }
 .card {
-  animation-delay: 0.1s; /* Retraso de 100ms para la primera tarjeta */
+  animation-delay: 0.1s;
 }
 
 .card:nth-child(2) {
-  animation-delay: 0.2s; /* Retraso de 200ms para la segunda tarjeta */
+  animation-delay: 0.2s; 
 }
 
 .card:nth-child(3) {
-  animation-delay: 0.3s; /* Retraso de 300ms para la tercera tarjeta */
+  animation-delay: 0.3s;
 }
 
-/* Y así sucesivamente para las otras tarjetas */
 
