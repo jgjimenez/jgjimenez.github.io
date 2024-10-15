@@ -230,3 +230,39 @@ footer p {
 .dot.active {
   background-color: #007bff; 
 }
+
+
+#contact {
+  padding: 60px 0;
+  background-color: #f1f1f1; /* Cambia el color de fondo según tu diseño */
+}
+
+#contact h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+#contact p {
+  margin-bottom: 40px;
+  font-size: 1.2rem;
+}
+
+.contact-icons {
+  display: flex;
+  justify-content: center;
+  gap: 20px; 
+}
+
+.contact-icon {
+  text-decoration: none; 
+}
+
+.icon {
+  width: 60px; 
+  height: 60px; 
+  transition: transform 0.3s; 
+}
+
+.icon:hover {
+  transform: scale(1.1); 
+}
