@@ -48,22 +48,26 @@
     <div class="container">
         <div class="row align-items-center">
             <div class="col-md-6">
-                <h2 class="text-center text-md-start">Sobre mí</h2>
-                <p class="lead mt-4 text-justify">
+                <h2 class="text-center text-md-start"><span id="about-title">Sobre mí</span></h2>
+                <p class="lead mt-4 text-justify" id="about-paragraph1">
                     ¡Hola! Soy <strong>José Gregorio Jiménez Sánchez</strong>, un apasionado desarrollador de software con experiencia en tecnologías como C#, .NET, Flutter y amante del software libre. Me especializo en el desarrollo de aplicaciones de escritorio, aplicaciones web y soluciones de infraestructura IT.
                 </p>
-                <p class="mt-3 text-justify">
+                <p class="mt-3 text-justify" id="about-paragraph2">
                     A lo largo de mi carrera, he trabajado en diversos proyectos que abarcan desde la creación de sistemas de facturación e inventario hasta la implementación de soluciones empresariales de alto rendimiento. Me motiva la idea de crear herramientas que faciliten la vida de las personas y optimicen los procesos dentro de las organizaciones.
                 </p>
-                <p class="mt-3 text-justify">
+                <p class="mt-3 text-justify" id="about-paragraph3">
                     Además de mi trabajo como desarrollador, soy el fundador de <strong>NethSystem PF C.A.</strong>, una empresa que se esfuerza por ofrecer soluciones tecnológicas de calidad, siempre con un enfoque en las necesidades del cliente y en la innovación constante.
                 </p>
-                <p class="mt-3 text-justify">
+                <p class="mt-3 text-justify" id="about-paragraph4">
                     Si estás buscando a alguien con pasión, experiencia y un compromiso absoluto con la calidad del código, no dudes en ponerte en contacto conmigo. Estoy aquí para ayudarte a llevar tus ideas al siguiente nivel.
                 </p>
-                <a href="mailto:nethsystemve@gmail.com" class="btn btn-primary mt-3">
-                    <i class="bi bi-envelope"></i> Contáctame
-                </a>
+
+                <div class="button-container mt-3">
+                    <a href="mailto:nethsystemve@gmail.com" class="btn btn-primary">
+                        <i class="bi bi-envelope"></i> Contáctame
+                    </a>
+                    <button id="toggle-about-lang" class="btn btn-outline-secondary ms-3">English</button>
+                </div>
             </div>
             <div class="col-md-6 text-center">
                 <img src="images/yo.JPG" alt="José Gregorio Jiménez Sánchez" class="img-fluid rounded-circle shadow-lg" style="width: 300px; height: 300px; object-fit: cover;">
@@ -71,6 +75,8 @@
         </div>
     </div>
 </section>
+
+
 
 <section id="contact">
     <div class="container text-center">

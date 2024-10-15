@@ -266,3 +266,36 @@ footer p {
 .icon:hover {
   transform: scale(1.1); 
 }
+
+#toggle-lang {
+  font-size: 0.9rem;
+  padding: 8px 15px;
+  border: 1px solid #007bff;
+  color: #007bff;
+  background-color: transparent;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#toggle-lang:hover {
+  background-color: #007bff;
+  color: #fff;
+}
+
+#toggle-about-lang {
+  font-size: 0.9rem;
+  padding: 8px 15px;
+  border: 1px solid #007bff;
+  color: #007bff;
+  background-color: transparent;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#toggle-about-lang:hover {
+  background-color: #007bff;
+  color: #fff;
+}
+
