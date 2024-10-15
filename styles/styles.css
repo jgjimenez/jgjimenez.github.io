@@ -299,3 +299,253 @@ footer p {
   color: #fff;
 }
 
+.patrocinio .logos h2 {
+  text-align: center; 
+  font-size: 1.8rem; 
+  font-weight: 600; 
+  margin-bottom: 20px;
+  color: #333; 
+}
+
+.patrocinio .hero {
+  position: relative; 
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url('../images/Designer.jpeg') no-repeat center center/cover;
+  color: white;
+  text-align: center;
+}
+
+.patrocinio .hero .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); 
+  z-index: 1; 
+}
+
+.patrocinio .hero .container {
+  position: relative;
+  z-index: 2; 
+}
+
+.patrocinio .text-white {
+  color: white; 
+}
+
+.patrocinio .hero h1 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.patrocinio .hero p {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
+  font-size: 1.25rem;
+  margin-bottom: 30px;
+}
+
+.patrocinio .donate-btn {
+  font-size: 1.25rem;
+  font-weight: 600;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.patrocinio .donate-btn:hover {
+  background-color: #0056b3;
+  text-decoration: none;
+}
+
+/* Carousel */
+.patrocinio .carousel-item img {
+  max-height: 200px;
+  object-fit: contain;
+}
+
+/* Footer */
+.patrocinio footer {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 0;
+}
+
+.patrocinio footer p {
+  margin: 0;
+}
+
+.patrocinio .carousel-images img {
+  max-height: 150px; 
+  max-width: 100%; 
+  object-fit: contain; 
+  margin: 0 auto; 
+  display: block;
+}
+
+.patrocinio #about {
+  background-color: #f8f9fa; 
+  padding: 60px 0; 
+}
+
+.patrocinio #about h2 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #333; 
+  margin-bottom: 20px;
+}
+
+.patrocinio #about p {
+  text-align: justify;
+  margin-bottom: 15px; 
+}
+
+.patrocinio #about img {
+  max-width: 60%; 
+  height: auto;
+  border-radius: 10px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: block; 
+  margin: 0 auto; 
+}
+
+.patrocinio .card {
+  animation-delay: 0.1s;
+}
+
+.patrocinio .card:nth-child(2) {
+  animation-delay: 0.2s; 
+}
+
+.patrocinio .card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+/* Sponsorship Levels */
+.patrocinio .bg-bronze {
+  background-color: #cd7f32;
+}
+
+.patrocinio .bg-silver {
+  background-color: #c0c0c0;
+}
+
+.patrocinio .bg-gold {
+  background-color: #ffd700;
+}
+
+.patrocinio .card-header.bg-bronze,
+.patrocinio .card-header.bg-silver,
+.patrocinio .card-header.bg-gold {
+  color: #000; /* Color negro */
+}
+
+#uso-de-patrocinios h2 {
+  font-size: 2.8rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+#uso-de-patrocinios p.lead {
+  font-size: 1.25rem;
+  color: #555;
+  margin-bottom: 40px;
+}
+
+#uso-de-patrocinios .card {
+  border: none;
+  transition: transform 0.3s ease-in-out;
+}
+
+#uso-de-patrocinios .card:hover {
+  transform: translateY(-10px);
+}
+
+#uso-de-patrocinios .card i {
+  color: #007bff;
+  transition: color 0.3s ease;
+}
+
+#uso-de-patrocinios .card:hover i {
+  color: #0056b3;
+}
+
+#uso-de-patrocinios .card-title {
+  font-size: 1.5rem;
+  margin-top: 10px;
+}
+
+#uso-de-patrocinios .card-text {
+  font-size: 1rem;
+  color: #666;
+}
+
+#buena-causa-venezuela {
+  position: relative;
+  background-image: url('../images/Venezuela.jpeg'); 
+  background-size: cover;
+  background-position: center;
+  padding: 60px 0;
+  z-index: 1;
+}
+
+#buena-causa-venezuela::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6); /* Color negro con 60% de opacidad */
+  z-index: 2;
+}
+
+#buena-causa-venezuela .container {
+  position: relative;
+  z-index: 3; /* Para que el contenido esté por encima del overlay */
+}
+
+#buena-causa-venezuela h2 {
+  font-size: 2.8rem;
+  color: #ffc107;
+  margin-bottom: 20px;
+}
+
+#buena-causa-venezuela p.lead {
+  font-size: 1.25rem;
+  color: #e1e1e1;
+  margin-bottom: 40px;
+}
+
+#buena-causa-venezuela .card {
+  background-color: rgba(0, 0, 0, 0.6);
+  border: none;
+  color: #ffffff;
+}
+
+#buena-causa-venezuela .card i {
+  color: #ffc107;
+}
+
+#buena-causa-venezuela .card-title {
+  font-size: 1.5rem;
+}
+
+#buena-causa-venezuela .card-text {
+  font-size: 1rem;
+  color: #cccccc;
+}
+
+#buena-causa-venezuela .mt-5 {
+  font-size: 1.2rem;
+  color: #fff;
+}
+
