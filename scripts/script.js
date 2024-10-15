@@ -29,14 +29,14 @@ document.addEventListener('DOMContentLoaded', function () {
     // Añadir eventos a los puntos
     dots.forEach((dot, i) => {
         dot.addEventListener('click', function () {
-            index = i; // Cambiar al índice del punto clicado
+            index = i; 
             updateCarousel();
         });
     });
 
     // Controlar la navegación automática (opcional)
     setInterval(() => {
-        index = (index + 1) % carouselImages.length; // Cambia al siguiente índice
+        index = (index + 1) % carouselImages.length; 
         updateCarousel();
-    }, 5000); // Cambia de imagen cada 5 segundos (ajusta el tiempo según necesites)
+    }, 5000); 
 });

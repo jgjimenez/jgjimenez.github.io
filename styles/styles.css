@@ -191,42 +191,42 @@ footer p {
 
 .gallery-slider {
   position: relative;
-  max-width: 500px; /* Ancho máximo del contenedor */
-  margin: 0 auto; /* Centrar el slider */
-  overflow: hidden; /* Oculta las imágenes que están fuera de vista */
+  max-width: 500px; 
+  margin: 0 auto; 
+  overflow: hidden; 
 }
 
 .carousel-container {
-  display: flex; /* Mantiene las imágenes en línea */
-  transition: transform 0.5s ease; /* Animación al cambiar la imagen */
+  display: flex;
+  transition: transform 0.5s ease; 
 }
 
 .carousel-container img {
-  width: 100%; /* Ocupa todo el ancho del contenedor */
-  height: auto; /* Mantiene la proporción de la imagen */
-  display: none; /* Oculta todas las imágenes por defecto */
+  width: 100%; 
+  height: auto; 
+  display: none; 
 }
 
 .carousel-container img.active {
-  display: block; /* Muestra solo la imagen activa */
+  display: block; 
 }
 
 .slider-dots {
   text-align: center;
-  margin-top: 10px; /* Espacio entre la imagen y los puntos */
+  margin-top: 10px; 
 }
 
 .dot {
   display: inline-block;
-  width: 10px; /* Tamaño del punto */
-  height: 10px; /* Tamaño del punto */
-  border-radius: 50%; /* Hace que sea un círculo */
-  background-color: #ddd; /* Color del punto inactivo */
-  margin: 0 5px; /* Espacio entre los puntos */
-  cursor: pointer; /* Cambia el cursor al pasar sobre el punto */
-  transition: background-color 0.3s; /* Transición de color */
+  width: 10px;
+  height: 10px; 
+  border-radius: 50%; 
+  background-color: #ddd; 
+  margin: 0 5px; 
+  cursor: pointer; 
+  transition: background-color 0.3s; 
 }
 
 .dot.active {
-  background-color: #007bff; /* Color del punto activo */
+  background-color: #007bff; 
 }
