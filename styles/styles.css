@@ -456,7 +456,7 @@ footer p {
   animation: load 3s normal forwards;
   box-shadow: 0 10px 40px -10px #030303;
   border-radius: 100px;
-  background: #fff;
+  background: #50883f;
   height: 30px;
   width: 0;
 }
