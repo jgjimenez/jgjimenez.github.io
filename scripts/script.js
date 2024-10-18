@@ -13,20 +13,18 @@ document.addEventListener('DOMContentLoaded', function () {
     const carouselImages = document.querySelectorAll('.carousel-container img');
     let index = 0;
 
-    // Mostrar la primera imagen al cargar
     carouselImages[index].classList.add('active');
 
     function updateCarousel() {
-        // Ocultar todas las imágenes
+
         carouselImages.forEach(img => img.classList.remove('active'));
-        // Mostrar la imagen actual
+
         carouselImages[index].classList.add('active');
-        // Actualizar los puntos
+
         dots.forEach(dot => dot.classList.remove('active'));
         dots[index].classList.add('active');
     }
 
-    // Añadir eventos a los puntos
     dots.forEach((dot, i) => {
         dot.addEventListener('click', function () {
             index = i; 
@@ -34,7 +32,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // Controlar la navegación automática (opcional)
     setInterval(() => {
         index = (index + 1) % carouselImages.length; 
         updateCarousel();
@@ -100,4 +97,33 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+});
+
+const donationGoal = 15000; 
+
+
+let currentDonations = 0; 
+
+
+function updateProgress() {
+    const progressPercent = Math.min((currentDonations / donationGoal) * 100, 100); 
+
+
+    document.getElementById('donation-amount').textContent = `$${currentDonations}`;
+
+
+    const progressBar = document.querySelector('.progress-value');
+    progressBar.style.width = `${progressPercent}%`;
+
+
+    progressBar.style.transition = 'width 0.5s ease'; 
+}
+
+function addDonation(amount) {
+    currentDonations += amount; 
+    updateProgress(); 
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    addDonation(0); 
 });

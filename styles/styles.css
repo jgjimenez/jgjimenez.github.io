@@ -1,3 +1,4 @@
+/* General Styles */
 .logos h2 {
   text-align: center; 
   font-size: 1.8rem; 
@@ -41,6 +42,8 @@
   font-weight: 600;
   font-size: 3rem;
   margin-bottom: 20px;
+  opacity: 0;
+  animation: fadeInUp 1s ease-in-out forwards;
 }
 
 .hero p {
@@ -48,6 +51,8 @@
   font-weight: 300;
   font-size: 1.25rem;
   margin-bottom: 30px;
+  opacity: 0;
+  animation: fadeInUp 1.2s ease-in-out forwards;
 }
 
 .donate-btn {
@@ -57,18 +62,36 @@
   background-color: #007bff;
   color: #fff;
   border-radius: 5px;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .donate-btn:hover {
   background-color: #0056b3;
+  transform: scale(1.1);
   text-decoration: none;
+}
+
+/* Animation Keyframes */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Carousel */
 .carousel-item img {
   max-height: 200px;
   object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.carousel-item img:hover {
+  transform: scale(1.05);
 }
 
 /* Footer */
@@ -90,6 +113,7 @@ footer p {
   display: block;
 }
 
+/* About Section */
 #about {
   background-color: #f8f9fa; 
   padding: 60px 0; 
@@ -115,8 +139,15 @@ footer p {
   display: block; 
   margin: 0 auto; 
 }
+
+/* Card Animation */
 .card {
-  animation-delay: 0.1s;
+  animation: fadeInUp 0.7s ease-in-out forwards;
+  transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-10px);
 }
 
 .card:nth-child(2) {
@@ -127,6 +158,7 @@ footer p {
   animation-delay: 0.3s;
 }
 
+/* About Me Section */
 #about-me {
   background-color: #f8f9fa;
   padding: 60px 0;
@@ -154,6 +186,8 @@ footer p {
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   display: block;
   margin: 0 auto; 
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-in-out forwards;
 }
 
 #about-me .btn {
@@ -163,15 +197,16 @@ footer p {
   background-color: #007bff;
   color: #fff;
   border-radius: 5px;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 #about-me .btn:hover {
   background-color: #0056b3;
+  transform: scale(1.1);
   text-decoration: none;
 }
 
-
+/* Gallery Section */
 #gallery {
   padding: 60px 0;
   background-color: #f8f9fa;
@@ -181,6 +216,8 @@ footer p {
   text-align: center;
   font-size: 2.5rem;
   margin-bottom: 20px;
+  opacity: 0;
+  animation: fadeInUp 1s ease-in-out forwards;
 }
 
 .gallery-description {
@@ -205,6 +242,8 @@ footer p {
   width: 100%; 
   height: auto; 
   display: none; 
+  opacity: 0;
+  animation: fadeIn 0.5s ease forwards;
 }
 
 .carousel-container img.active {
@@ -231,22 +270,17 @@ footer p {
   background-color: #007bff; 
 }
 
-
-#contact {
-  padding: 60px 0;
-  background-color: #f1f1f1; /* Cambia el color de fondo según tu diseño */
+/* Keyframes for fadeIn */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
-#contact h2 {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-}
-
-#contact p {
-  margin-bottom: 40px;
-  font-size: 1.2rem;
-}
-
+/* Contact Icons */
 .contact-icons {
   display: flex;
   justify-content: center;
@@ -255,6 +289,7 @@ footer p {
 
 .contact-icon {
   text-decoration: none; 
+  transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 .icon {
@@ -265,8 +300,10 @@ footer p {
 
 .icon:hover {
   transform: scale(1.1); 
+  background-color: #ffffff;
 }
 
+/* Toggle Language Button */
 #toggle-lang {
   font-size: 0.9rem;
   padding: 8px 15px;
@@ -298,194 +335,42 @@ footer p {
   background-color: #007bff;
   color: #fff;
 }
-
-.patrocinio .logos h2 {
-  text-align: center; 
-  font-size: 1.8rem; 
-  font-weight: 600; 
-  margin-bottom: 20px;
-  color: #333; 
-}
-
-.patrocinio .hero {
-  position: relative; 
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: url('../images/Designer.jpeg') no-repeat center center/cover;
-  color: white;
-  text-align: center;
-}
-
-.patrocinio .hero .overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); 
-  z-index: 1; 
-}
-
-.patrocinio .hero .container {
-  position: relative;
-  z-index: 2; 
-}
-
-.patrocinio .text-white {
-  color: white; 
-}
-
-.patrocinio .hero h1 {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 600;
-  font-size: 3rem;
-  margin-bottom: 20px;
-}
-
-.patrocinio .hero p {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 300;
-  font-size: 1.25rem;
-  margin-bottom: 30px;
-}
-
-.patrocinio .donate-btn {
-  font-size: 1.25rem;
-  font-weight: 600;
-  padding: 10px 20px;
+/* Button Styles */
+.donate-btn {
   background-color: #007bff;
-  color: #fff;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 30px;
+  transition: background-color 0.3s;
 }
 
-.patrocinio .donate-btn:hover {
+.donate-btn:hover {
   background-color: #0056b3;
-  text-decoration: none;
 }
 
-/* Carousel */
-.patrocinio .carousel-item img {
-  max-height: 200px;
-  object-fit: contain;
+/* Card Styles */
+.card {
+  transition: transform 0.2s;
 }
 
-/* Footer */
-.patrocinio footer {
-  background-color: #333;
-  color: #fff;
-  padding: 10px 0;
+.card:hover {
+  transform: scale(1.05);
 }
 
-.patrocinio footer p {
-  margin: 0;
+/* Sponsorship Level Colors */
+.bg-bronze {
+  background-color: #cd7f32; /* Color bronce */
+  color: white;
 }
 
-.patrocinio .carousel-images img {
-  max-height: 150px; 
-  max-width: 100%; 
-  object-fit: contain; 
-  margin: 0 auto; 
-  display: block;
+.bg-silver {
+  background-color: #c0c0c0; /* Color plata */
+  color: black;
 }
 
-.patrocinio #about {
-  background-color: #f8f9fa; 
-  padding: 60px 0; 
-}
-
-.patrocinio #about h2 {
-  font-size: 2.5rem;
-  font-weight: 600;
-  color: #333; 
-  margin-bottom: 20px;
-}
-
-.patrocinio #about p {
-  text-align: justify;
-  margin-bottom: 15px; 
-}
-
-.patrocinio #about img {
-  max-width: 60%; 
-  height: auto;
-  border-radius: 10px; 
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  display: block; 
-  margin: 0 auto; 
-}
-
-.patrocinio .card {
-  animation-delay: 0.1s;
-}
-
-.patrocinio .card:nth-child(2) {
-  animation-delay: 0.2s; 
-}
-
-.patrocinio .card:nth-child(3) {
-  animation-delay: 0.3s;
-}
-
-/* Sponsorship Levels */
-.patrocinio .bg-bronze {
-  background-color: #cd7f32;
-}
-
-.patrocinio .bg-silver {
-  background-color: #c0c0c0;
-}
-
-.patrocinio .bg-gold {
-  background-color: #ffd700;
-}
-
-.patrocinio .card-header.bg-bronze,
-.patrocinio .card-header.bg-silver,
-.patrocinio .card-header.bg-gold {
-  color: #000; /* Color negro */
-}
-
-#uso-de-patrocinios h2 {
-  font-size: 2.8rem;
-  color: #333;
-  margin-bottom: 20px;
-}
-
-#uso-de-patrocinios p.lead {
-  font-size: 1.25rem;
-  color: #555;
-  margin-bottom: 40px;
-}
-
-#uso-de-patrocinios .card {
-  border: none;
-  transition: transform 0.3s ease-in-out;
-}
-
-#uso-de-patrocinios .card:hover {
-  transform: translateY(-10px);
-}
-
-#uso-de-patrocinios .card i {
-  color: #007bff;
-  transition: color 0.3s ease;
-}
-
-#uso-de-patrocinios .card:hover i {
-  color: #0056b3;
-}
-
-#uso-de-patrocinios .card-title {
-  font-size: 1.5rem;
-  margin-top: 10px;
-}
-
-#uso-de-patrocinios .card-text {
-  font-size: 1rem;
-  color: #666;
+.bg-gold {
+  background-color: #ffd700; /* Color oro */
+  color: black;
 }
 
 #buena-causa-venezuela {
@@ -549,3 +434,40 @@ footer p {
   color: #fff;
 }
 
+.donation-section {
+  padding: 50px 0;
+  background-color: #f8f9fa; 
+}
+
+.progress {
+  background: rgba(255, 255, 255, 0.1);
+  justify-content: flex-start;
+  border-radius: 100px;
+  align-items: center;
+  position: relative;
+  padding: 0 5px;
+  display: flex;
+  height: 40px;
+  max-width: 500px; 
+  margin: 20px auto; 
+}
+
+.progress-value {
+  animation: load 3s normal forwards;
+  box-shadow: 0 10px 40px -10px #030303;
+  border-radius: 100px;
+  background: #fff;
+  height: 30px;
+  width: 0;
+}
+/*
+@keyframes load {
+  0% { width: 0; }
+  100% { width: 68%; }
+}
+*/
+
+/* Centering the text */
+.text-center {
+  text-align: center;
+}
