@@ -473,7 +473,7 @@ footer p {
 }
 @media (max-width: 768px) {
   .hero h1 {
-      font-size: 2.5rem; /* Reduce el tamaño del título en pantallas pequeñas */
+      font-size: 2rem; /* Reduce el tamaño del título en pantallas pequeñas */
       line-height: 1.2;  /* Ajusta el espacio entre líneas si es necesario */
   }
 
