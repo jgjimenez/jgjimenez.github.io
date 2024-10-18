@@ -471,3 +471,8 @@ footer p {
 .text-center {
   text-align: center;
 }
+@media (max-width: 576px) {
+  .progress {
+    height: 30px; /* Ajustar altura para móviles */
+  }
+}
