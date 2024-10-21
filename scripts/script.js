@@ -127,3 +127,17 @@ function addDonation(amount) {
 document.addEventListener('DOMContentLoaded', function() {
     addDonation(0); 
 });
+
+document.getElementById('paypalLink').addEventListener('click', function() {
+    var selectedAmount = document.getElementById('donationAmount').value; // Obtiene el valor seleccionado del ComboBox
+    var paypalUrl;
+
+    // Verifica si se seleccionó 'Otro monto'
+    if (selectedAmount === 'custom') {
+        paypalUrl = "https://www.paypal.me/josegjimenez"; // URL genérica
+    } else {
+        paypalUrl = `https://www.paypal.me/josegjimenez/${selectedAmount}`; // URL con el monto seleccionado
+    }
+
+    window.open(paypalUrl, '_blank'); // Abre el enlace en una nueva pestaña
+});
