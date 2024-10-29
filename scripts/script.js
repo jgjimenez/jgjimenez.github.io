@@ -102,7 +102,7 @@ document.addEventListener('DOMContentLoaded', function() {
 const donationGoal = 15000; 
 
 
-let currentDonations = 0; 
+let currentDonations = 106; 
 
 
 function updateProgress() {
