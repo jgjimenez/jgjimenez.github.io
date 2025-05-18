@@ -66,6 +66,16 @@
             pauseIcon.classList.add('hidden');
         });
 
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden && isPlaying) {
+                audio.pause();
+                isPlaying = false;
+                playIcon.classList.remove('hidden');
+                pauseIcon.classList.add('hidden');
+                console.log('Audio pausado por cambio de visibilidad');
+            }
+        });
+
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
                 navigator.serviceWorker.register('/service-worker.js')
