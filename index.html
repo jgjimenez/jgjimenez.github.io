@@ -25,9 +25,50 @@
             position: absolute;
             left: -9999px;
         }
+        /* Estilos del Splash Screen */
+        .splash-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #1F2937;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            z-index: 1000;
+            animation: fadeOut 0.5s ease-out 3s forwards;
+        }
+        
+        @keyframes fadeOut {
+            from { opacity: 1; }
+            to { opacity: 0; visibility: hidden; }
+        }
+
+        .splash-logo {
+            width: 200px;
+            height: 200px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
     </style>
 </head>
 <body class="bg-gray-900 text-white">
+    <!-- Splash Screen -->
+    <div class="splash-screen">
+        <img src="/images/Radio_Vida_Eterna_logo.png" 
+             alt="Logo Radio Vida Eterna" 
+             class="splash-logo rounded-md">
+        <h1 class="text-2xl font-semibold text-white mt-4">Radio Vida Eterna</h1>
+    </div>
+
+    <!-- Contenido Principal -->
     <div class="flex flex-col items-center mx-auto p-4 w-full max-w-md">
         <div class="bg-gray-800 rounded-lg shadow-md w-full p-6 flex flex-col items-center">
             <h1 class="text-2xl font-semibold text-center text-white mb-4">Radio Vida Eterna</h1>
@@ -77,7 +118,6 @@
            crossorigin="anonymous"></audio>
 
     <script>
-        // (El script permanece igual que en tu versión anterior)
         // Elementos del DOM
         const audio = document.getElementById('audio');
         const playPauseBtn = document.getElementById('play-pause-btn');
@@ -87,7 +127,6 @@
         // Configurar Media Session
         function initializeMediaSession() {
             if ('mediaSession' in navigator) {
-                // Metadatos iniciales
                 navigator.mediaSession.metadata = new MediaMetadata({
                     title: 'Radio Vida Eterna',
                     artist: 'Transmitiendo la palabra de Dios',
@@ -97,23 +136,18 @@
                     ]
                 });
 
-                // Manejadores de acciones
                 navigator.mediaSession.setActionHandler('play', togglePlayback);
                 navigator.mediaSession.setActionHandler('pause', togglePlayback);
-                
-                // Actualizar estado inicial
                 updatePlaybackState();
             }
         }
 
-        // Actualizar estado de reproducción
         function updatePlaybackState() {
             if ('mediaSession' in navigator) {
                 navigator.mediaSession.playbackState = audio.paused ? 'paused' : 'playing';
             }
         }
 
-        // Alternar reproducción
         function togglePlayback() {
             if (audio.paused) {
                 audio.play().catch(error => {
@@ -125,7 +159,6 @@
             updateInterface();
         }
 
-        // Actualizar interfaz
         function updateInterface() {
             if (audio.paused) {
                 playIcon.classList.remove('hidden');
@@ -149,9 +182,13 @@
 
         // Inicialización
         document.addEventListener('DOMContentLoaded', () => {
+            const splashScreen = document.querySelector('.splash-screen');
+            setTimeout(() => {
+                splashScreen.remove();
+            }, 3500);
+
             initializeMediaSession();
             
-            // Forzar actualización del service worker al cargar
             if ('serviceWorker' in navigator) {
                 navigator.serviceWorker.getRegistration().then(registration => {
                     if (registration) {
@@ -166,13 +203,13 @@
             window.addEventListener('load', () => {
                 navigator.serviceWorker.register('/service-worker.js')
                     .then(registration => {
-                        console.log('Service Worker registrado con éxito:', registration.scope);
+                        console.log('Service Worker registrado:', registration.scope);
                         registration.addEventListener('updatefound', () => {
-                            console.log('Nueva versión del Service Worker encontrada...');
+                            console.log('Nueva versión encontrada...');
                         });
                     })
                     .catch(error => {
-                        console.error('Error al registrar el Service Worker:', error);
+                        console.error('Error:', error);
                     });
             });
         }
