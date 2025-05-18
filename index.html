@@ -34,116 +34,114 @@
         <audio id="audio" src="https://cloudstream2036.conectarhosting.com/8414/stream"></audio>
     </div>
     <script>
-       const audio = document.getElementById('audio');
-const playPauseBtn = document.getElementById('play-pause-btn');
-const playIcon = document.getElementById('play-icon');
-const pauseIcon = document.getElementById('pause-icon');
-let isPlaying = false;
-let wasPlayingBeforeInterruption = false;
+        const audio = document.getElementById('audio');
+        const playPauseBtn = document.getElementById('play-pause-btn');
+        const playIcon = document.getElementById('play-icon');
+        const pauseIcon = document.getElementById('pause-icon');
+        let isPlaying = false;
+        let wasPlayingBeforeInterruption = false;
 
-function playPause() {
-    if (audio.paused) {
-        audio.play().then(() => {
-            isPlaying = true;
-            playIcon.classList.add('hidden');
-            pauseIcon.classList.remove('hidden');
-            updateMediaSessionState('playing');
-        }).catch(error => {
-            console.error("Error al reproducir:", error);
+        function playPause() {
+            if (audio.paused) {
+                audio.play().then(() => {
+                    isPlaying = true;
+                    playIcon.classList.add('hidden');
+                    pauseIcon.classList.remove('hidden');
+                    updateMediaSessionState('playing');
+                }).catch(error => {
+                    console.error("Error al reproducir:", error);
+                    isPlaying = false;
+                    playPauseBtn.dispatchEvent(new Event('click'));
+                    updateMediaSessionState('paused');
+                });
+            } else {
+                audio.pause();
+                isPlaying = false;
+                playIcon.classList.remove('hidden');
+                pauseIcon.classList.add('hidden');
+                updateMediaSessionState('paused');
+            }
+        }
+
+        playPauseBtn.addEventListener('click', playPause);
+        audio.addEventListener('ended', () => {
             isPlaying = false;
-            playPauseBtn.dispatchEvent(new Event('click'));
+            playIcon.classList.remove('hidden');
+            pauseIcon.classList.add('hidden');
             updateMediaSessionState('paused');
         });
-    } else {
-        audio.pause();
-        isPlaying = false;
-        playIcon.classList.remove('hidden');
-        pauseIcon.classList.add('hidden');
-        updateMediaSessionState('paused');
-    }
-}
 
-playPauseBtn.addEventListener('click', playPause);
-audio.addEventListener('ended', () => {
-    isPlaying = false;
-    playIcon.classList.remove('hidden');
-    pauseIcon.classList.add('hidden');
-    updateMediaSessionState('paused');
-});
-
-// Función para actualizar el estado de la Media Session API
-function updateMediaSessionState(state) {
-    if ('mediaSession' in navigator) {
-        navigator.mediaSession.playbackState = state;
-    }
-}
-
-// Manejar eventos de interrupción de audio a través de la Media Session API
-if ('mediaSession' in navigator) {
-    navigator.mediaSession.addEventListener('interrupt', event => {
-        if (isPlaying) {
-            wasPlayingBeforeInterruption = true;
-            audio.pause();
-            isPlaying = false;
-            playIcon.classList.remove('hidden');
-            pauseIcon.classList.add('hidden');
-            updateMediaSessionState('paused');
-            console.log('Audio pausado por interrupción (Media Session)');
+        // Función para actualizar el estado de la Media Session API
+        function updateMediaSessionState(state) {
+            if ('mediaSession' in navigator) {
+                navigator.mediaSession.playbackState = state;
+            }
         }
-    });
 
-    navigator.mediaSession.addEventListener('resumefrombackground', () => {
-        if (wasPlayingBeforeInterruption && audio.paused) {
-            audio.play().then(() => {
-                isPlaying = true;
-                wasPlayingBeforeInterruption = false;
-                playIcon.classList.add('hidden');
-                pauseIcon.classList.remove('hidden');
-                updateMediaSessionState('playing');
-                console.log('Audio reanudado desde segundo plano (Media Session)');
-            }).catch(error => {
-                console.error("Error al reanudar desde segundo plano:", error);
-                wasPlayingBeforeInterruption = false;
-                updateMediaSessionState('paused');
+        // Manejar eventos de interrupción de audio a través de la Media Session API
+        if ('mediaSession' in navigator) {
+            navigator.mediaSession.addEventListener('interrupt', event => {
+                if (isPlaying) {
+                    wasPlayingBeforeInterruption = true;
+                    audio.pause();
+                    isPlaying = false;
+                    playIcon.classList.remove('hidden');
+                    pauseIcon.classList.add('hidden');
+                    updateMediaSessionState('paused');
+                    console.log('Audio pausado por interrupción (Media Session)');
+                }
+            });
+
+            navigator.mediaSession.addEventListener('resumefrombackground', () => {
+                if (wasPlayingBeforeInterruption && audio.paused) {
+                    audio.play().then(() => {
+                        isPlaying = true;
+                        wasPlayingBeforeInterruption = false;
+                        playIcon.classList.add('hidden');
+                        pauseIcon.classList.remove('hidden');
+                        updateMediaSessionState('playing');
+                        console.log('Audio reanudado desde segundo plano (Media Session)');
+                    }).catch(error => {
+                        console.error("Error al reanudar desde segundo plano:", error);
+                        wasPlayingBeforeInterruption = false;
+                        updateMediaSessionState('paused');
+                    });
+                }
+            });
+        } else {
+            // Fallback para navegadores que no soportan la Media Session API
+            document.addEventListener('visibilitychange', () => {
+                if (document.hidden && isPlaying) {
+                    wasPlayingBeforeInterruption = true;
+                    audio.pause();
+                    isPlaying = false;
+                    playIcon.classList.remove('hidden');
+                    pauseIcon.classList.add('hidden');
+                    console.log('Audio pausado por cambio de visibilidad (fallback)');
+                } else if (!document.hidden && wasPlayingBeforeInterruption && audio.paused) {
+                    audio.play().then(() => {
+                        isPlaying = true;
+                        wasPlayingBeforeInterruption = false;
+                        playIcon.classList.add('hidden');
+                        pauseIcon.classList.remove('hidden');
+                        console.log('Audio reanudado por cambio de visibilidad (fallback)');
+                    }).catch(error => {
+                        console.error("Error al reanudar por visibilidad (fallback):", error);
+                        wasPlayingBeforeInterruption = false;
+                    });
+                }
             });
         }
-    });
-} else {
-    // Fallback para navegadores que no soportan la Media Session API
-    document.addEventListener('visibilitychange', () => {
-        if (document.hidden && isPlaying) {
-            wasPlayingBeforeInterruption = true;
-            audio.pause();
-            isPlaying = false;
-            playIcon.classList.remove('hidden');
-            pauseIcon.classList.add('hidden');
-            console.log('Audio pausado por cambio de visibilidad (fallback)');
-        } else if (!document.hidden && wasPlayingBeforeInterruption && audio.paused) {
-            audio.play().then(() => {
-                isPlaying = true;
-                wasPlayingBeforeInterruption = false;
-                playIcon.classList.add('hidden');
-                pauseIcon.classList.remove('hidden');
-                console.log('Audio reanudado por cambio de visibilidad (fallback)');
-            }).catch(error => {
-                console.error("Error al reanudar por visibilidad (fallback):", error);
-                wasPlayingBeforeInterruption = false;
-            });
-        }
-    });
-}
 
-if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/service-worker.js')
-            .then(registration => {
-                console.log('Service Worker registrado:', registration);
-            })
-            .catch(error => {
-                console.error('Error al registrar el Service Worker:', error);
-            });
-    });
-}
+        // Evitar que el audio se silencie en segundo plano (puede no ser completamente efectivo en todos los navegadores)
+        audio.addEventListener('pause', () => {
+            if (isPlaying && !document.hidden) {
+                // Si se pausó mientras estaba reproduciendo en primer plano, intenta reanudar
+                audio.play().catch(error => {
+                    console.warn("Intento de reanudación fallido:", error);
+                });
+            }
+        });
     </script>
 </body>
 </html>
