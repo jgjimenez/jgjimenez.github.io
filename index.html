@@ -1,241 +1,82 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Radio Vida Eterna</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="manifest" href="/manifest.json">
-    <link rel="apple-touch-icon" sizes="180x180" href="/images/Radio_Vida_Eterna_logo_192.png">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            display: flex; /* Usamos flexbox para centrar */
-            justify-content: center; /* Centra horizontalmente */
-            align-items: center; /* Centra verticalmente */
-            min-height: 100vh; /* Asegura que el body ocupe toda la altura de la pantalla */
-            margin: 0; /* Elimina los márgenes predeterminados del body */
-            background-color: #1e293b; /* Tailwind gray-900 */
-            color: #f9fafb; /* Tailwind text-white */
-            padding: 1rem; /* Añade un poco de espacio alrededor del contenido */
-        }
-
-        .container {
-            background-color: #374151; /* Tailwind gray-800 */
-            border-radius: 0.5rem; /* Tailwind rounded-lg */
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* Tailwind shadow-md */
-            width: 100%;
-            max-width: 28rem; /* Ajusta el ancho máximo según tus preferencias */
-            padding: 1.5rem; /* Tailwind p-6 */
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .logo-container {
-            margin-bottom: 1rem; /* Tailwind mb-4 */
-        }
-
-        .logo {
-            width: 12rem; /* Ajusta el tamaño del logo según tus preferencias */
-            height: auto;
-            border-radius: 0.375rem; /* Tailwind rounded-md */
-        }
-
-        .title {
-            font-size: 1.5rem; /* Tailwind text-2xl */
-            font-weight: 600; /* Tailwind font-semibold */
-            text-align: center;
-            color: #f9fafb; /* Tailwind text-white */
-            margin-bottom: 1rem; /* Tailwind mb-4 */
-        }
-
-        .play-button-container {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 0; /* Elimina el margen inferior del contenedor del botón */
-        }
-
-        .play-pause-btn {
-            background-color: transparent;
-            color: #f9fafb; /* Tailwind text-white */
-            border-radius: 50%; /* Tailwind rounded-full */
-            padding: 1rem; /* Tailwind p-4 */
-            transform: scale(1.25); /* Tailwind scale-125 */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: none;
-            outline: none;
-            cursor: pointer;
-        }
-
-        .play-pause-btn:hover {
-            background-color: rgba(255, 255, 255, 0.1); /* Tailwind hover:bg-white/10 */
-        }
-
-        .play-icon,
-        .pause-icon {
-            width: 2.5rem; /* Ajusta el tamaño de los iconos SVG */
-            height: 2.5rem;
-            fill: none;
-            stroke: currentColor;
-            stroke-linecap: round;
-            stroke-linejoin: round;
-            stroke-width: 2;
-        }
-
-        #audio {
-            /* Ocultamos el reproductor de audio nativo */
-            width: 0;
-            height: 0;
-            opacity: 0;
-            position: absolute;
-            bottom: -100px;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radio Vida Eterna</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="manifest" href="/manifest.json">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/Radio_Vida_Eterna_logo_192.png">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
 </head>
 <body class="bg-gray-900 text-white flex justify-center items-center min-h-screen p-4">
-    <div class="container">
-        <h1 class="title">Radio Vida Eterna</h1>
-        <div class="logo-container">
-            <img src="images/Radio_Vida_Eterna_logo.png" alt="Logo Radio Vida Eterna" class="logo">
-        </div>
-        <div class="play-button-container">
-            <button id="play-pause-btn" class="play-pause-btn">
-                <svg id="play-icon" xmlns="http://www.w3.org/2000/svg" class="play-icon" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-                <svg id="pause-icon" xmlns="http://www.w3.org/2000/svg" class="pause-icon hidden" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-            </button>
-        </div>
-        <audio id="audio" src="https://cloudstream2036.conectarhosting.com/8414/stream"></audio>
-    </div>
-    <script>
-        const audio = document.getElementById('audio');
-        const playPauseBtn = document.getElementById('play-pause-btn');
-        const playIcon = document.getElementById('play-icon');
-        const pauseIcon = document.getElementById('pause-icon');
-        let isPlaying = false;
+    <div class="bg-gray-800 rounded-lg shadow-md w-full max-w-md p-6 flex flex-col items-center">
+        <h1 class="text-2xl font-semibold text-center text-white mb-4">Radio Vida Eterna</h1>
+        <div class="mb-4">
+            <img src="images/Radio_Vida_Eterna_logo.png" alt="Logo Radio Vida Eterna" class="w-48 h-auto rounded-md">
+        </div>
+        <div class="flex justify-center">
+            <button id="play-pause-btn" class="text-white hover:bg-white/10 rounded-full p-4 scale-125 flex items-center">
+                <svg id="play-icon" xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <svg id="pause-icon" xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+            </button>
+        </div>
+        <audio id="audio" src="https://cloudstream2036.conectarhosting.com/8414/stream"></audio>
+    </div>
+    <script>
+        const audio = document.getElementById('audio');
+        const playPauseBtn = document.getElementById('play-pause-btn');
+        const playIcon = document.getElementById('play-icon');
+        const pauseIcon = document.getElementById('pause-icon');
+        let isPlaying = false;
 
-        function updatePlayPauseButton() {
-            if (isPlaying) {
-                playIcon.classList.add('hidden');
-                pauseIcon.classList.remove('hidden');
-            } else {
-                playIcon.classList.remove('hidden');
-                pauseIcon.classList.add('hidden');
-            }
-        }
+        function playPause() {
+            if (audio.paused) {
+                audio.play().then(() => {
+                    isPlaying = true;
+                    playIcon.classList.add('hidden');
+                    pauseIcon.classList.remove('hidden');
+                }).catch(error => {
+                    console.error("Error al reproducir:", error);
+                    isPlaying = false;
+                    playPauseBtn.dispatchEvent(new Event('click'));
+                });
+            } else {
+                audio.pause();
+                isPlaying = false;
+                playIcon.classList.remove('hidden');
+                pauseIcon.classList.add('hidden');
+            }
+        }
 
-        function playAudio() {
-            audio.play().then(() => {
-                isPlaying = true;
-                updatePlayPauseButton();
-                updateMediaSessionState('playing');
-            }).catch(error => {
-                console.error("Error al reproducir:", error);
-                isPlaying = false;
-                updatePlayPauseButton();
-                updateMediaSessionState('paused');
-            });
-        }
+        playPauseBtn.addEventListener('click', playPause);
+        audio.addEventListener('ended', () => {
+            isPlaying = false;
+            playIcon.classList.remove('hidden');
+            pauseIcon.classList.add('hidden');
+        });
 
-        function pauseAudio() {
-            audio.pause();
-            isPlaying = false;
-            updatePlayPauseButton();
-            updateMediaSessionState('paused');
-        }
-
-        function playPause() {
-            if (isPlaying) {
-                pauseAudio();
-            } else {
-                playAudio();
-            }
-        }
-
-        playPauseBtn.addEventListener('click', playPause);
-        audio.addEventListener('ended', () => {
-            isPlaying = false;
-            updatePlayPauseButton();
-            updateMediaSessionState('paused');
-        });
-
-        // Función para actualizar el estado de la Media Session API
-        function updateMediaSessionState(state) {
-            if ('mediaSession' in navigator) {
-                navigator.mediaSession.playbackState = state;
-            }
-        }
-
-        // Actualizar el botón al cargar la página
-        updatePlayPauseButton();
-
-        // Manejar eventos de interrupción de audio a través de la Media Session API
-        if ('mediaSession' in navigator) {
-            navigator.mediaSession.addEventListener('interrupt', event => {
-                if (isPlaying) {
-                    pauseAudio();
-                    console.log('Audio pausado por interrupción (Media Session)');
-                }
-            });
-
-            navigator.mediaSession.addEventListener('resumefrombackground', () => {
-                if (!isPlaying && (audio.paused || audio.readyState < 3)) {
-                    playAudio();
-                    console.log('Audio reanudado desde segundo plano (Media Session)');
-                }
-            });
-
-            navigator.mediaSession.setActionHandler('pause', () => {
-                if (isPlaying) {
-                    pauseAudio();
-                    console.log('Audio pausado por solicitud de pausa del sistema');
-                }
-            });
-            navigator.mediaSession.setActionHandler('play', () => {
-                if (!isPlaying && (audio.paused || audio.readyState < 3)) {
-                    playAudio();
-                    console.log('Audio reanudado por solicitud de reproducción del sistema');
-                }
-            });
-
-            navigator.mediaSession.addEventListener('playstatechange', () => {
-                if (navigator.mediaSession.playbackState === 'paused' && isPlaying) {
-                    isPlaying = false;
-                    updatePlayPauseButton();
-                } else if (navigator.mediaSession.playbackState === 'playing' && !isPlaying) {
-                    isPlaying = true;
-                    updatePlayPauseButton();
-                }
-            });
-        } else {
-            // Fallback para navegadores que no soportan la Media Session API
-            document.addEventListener('visibilitychange', () => {
-                if (document.hidden && isPlaying) {
-                    pauseAudio();
-                    console.log('Audio pausado por cambio de visibilidad (fallback)');
-                }
-            });
-        }
-
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/service-worker.js')
-                    .then(registration => {
-                        console.log('Service Worker registrado:', registration);
-                    })
-                    .catch(error => {
-                        console.error('Error al registrar el Service Worker:', error);
-                    });
-            });
-        }
-    </script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js')
+                    .then(registration => {
+                        console.log('Service Worker registrado:', registration);
+                    })
+                    .catch(error => {
+                        console.error('Error al registrar el Service Worker:', error);
+                    });
+            });
+        }
+    </script>
 </body>
 </html>
