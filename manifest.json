@@ -19,7 +19,5 @@
   "display": "standalone",
   "background_color": "#1f2937",
   "theme_color": "#1f2937",
-  "description": "Transmitiendo la palabra de Dios las 24 horas",
-  "scope": "/",
-  "orientation": "portrait"
+  "description": "Transmitiendo la palabra de Dios"
 }
