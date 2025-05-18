@@ -1,10 +1,11 @@
-const CACHE_NAME = 'radio-vida-eterna-cache-v1';
+const CACHE_NAME = 'radio-vida-eterna-cache-v2';
 const urlsToCache = [
   '/',
   '/index.html',
   '/css/styles.css',
   '/script/script.js',
-  '/images/Radio_Vida_Eterna_logo.png' // Removí el stream de aquí
+  '/images/Radio_Vida_Eterna_logo_192.png',
+  '/images/Radio_Vida_Eterna_logo_512.png'
 ];
 
 self.addEventListener('install', (event) => {
@@ -18,18 +19,21 @@ self.addEventListener('install', (event) => {
 });
 
 self.addEventListener('fetch', (event) => {
-  // Excluir el stream de audio del cache
+  // Excluir el stream de audio del caché
   if (event.request.url.includes('conectarhosting.com/8414/stream')) {
-    return fetch(event.request); // No usar cache para el stream
+    return fetch(event.request);
   }
   
   event.respondWith(
     caches.match(event.request)
       .then((response) => {
-        if (response) {
-          return response;
-        }
-        return fetch(event.request);
+        return response || fetch(event.request)
+          .then(fetchResponse => {
+            return caches.open(CACHE_NAME).then(cache => {
+              cache.put(event.request.url, fetchResponse.clone());
+              return fetchResponse;
+            });
+          });
       })
   );
 });
@@ -40,10 +44,8 @@ self.addEventListener('activate', (event) => {
       return Promise.all(
         cacheNames.map((cacheName) => {
           if (cacheName !== CACHE_NAME) {
-            console.log('Eliminando caché antigua:', cacheName);
             return caches.delete(cacheName);
           }
-          return null;
         })
       );
     })
