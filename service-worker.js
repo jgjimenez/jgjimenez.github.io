@@ -1,4 +1,4 @@
-const CACHE_NAME = 'radio-vida-eterna-cache-v2';
+const CACHE_NAME = 'radio-vida-eterna-cache-v1';
 const urlsToCache = [
   '/',
   '/index.html',
