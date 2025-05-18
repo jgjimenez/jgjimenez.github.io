@@ -1,22 +1,23 @@
 {
   "name": "Radio Vida Eterna",
-  "short_name": "Radio Vida Eterena",
+  "short_name": "Radio Vida Eterna",
   "icons": [
     {
-      "src": "images/Radio_Vida_Eterna_logo_192.png",
+      "src": "/images/Radio_Vida_Eterna_logo_192.png",
       "sizes": "192x192",
       "type": "image/png",
-      "purpose": "any"
+      "purpose": "any maskable"
     },
     {
-      "src": "images/Radio_Vida_Eterna_logo_512.png",
+      "src": "/images/Radio_Vida_Eterna_logo_512.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "any"
+      "purpose": "any maskable"
     }
   ],
   "start_url": "/index.html",
   "display": "standalone",
   "background_color": "#1f2937",
-  "theme_color": "#1f2937"
+  "theme_color": "#1f2937",
+  "description": "Transmitiendo la palabra de Dios"
 }
