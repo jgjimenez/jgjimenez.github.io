@@ -39,6 +39,7 @@
         const playIcon = document.getElementById('play-icon');
         const pauseIcon = document.getElementById('pause-icon');
         let isPlaying = false;
+        let wasPlayingBeforeInterruption = false;
 
         function playPause() {
             if (audio.paused) {
@@ -68,11 +69,23 @@
 
         document.addEventListener('visibilitychange', () => {
             if (document.hidden && isPlaying) {
+                wasPlayingBeforeInterruption = true;
                 audio.pause();
                 isPlaying = false;
                 playIcon.classList.remove('hidden');
                 pauseIcon.classList.add('hidden');
                 console.log('Audio pausado por cambio de visibilidad');
+            } else if (!document.hidden && wasPlayingBeforeInterruption) {
+                audio.play().then(() => {
+                    isPlaying = true;
+                    wasPlayingBeforeInterruption = false;
+                    playIcon.classList.add('hidden');
+                    pauseIcon.classList.remove('hidden');
+                    console.log('Audio reanudado por cambio de visibilidad');
+                }).catch(error => {
+                    console.error("Error al reanudar:", error);
+                    wasPlayingBeforeInterruption = false;
+                });
             }
         });
 
