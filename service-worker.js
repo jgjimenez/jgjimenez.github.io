@@ -1,15 +1,11 @@
 const CACHE_NAME = 'radio-vida-eterna-cache-v2';
 const urlsToCache = [
-    '/',
-    '/index.html',
-    '/radio.html',
-    '/info.html',
-    '/donaciones.html',
-    '/cronograma.html',
-    '/css/styles.css',
-    '/script/script.js',
-    '/images/Radio_Vida_Eterna_logo_192.png',
-    '/images/Radio_Vida_Eterna_logo_512.png'
+  '/',
+  '/index.html',
+  '/css/styles.css',
+  '/script/script.js',
+  '/images/Radio_Vida_Eterna_logo_192.png',
+  '/images/Radio_Vida_Eterna_logo_512.png'
 ];
 
 self.addEventListener('install', (event) => {
