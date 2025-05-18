@@ -1,11 +1,10 @@
-const CACHE_NAME = 'radio-vida-eterna-cache-v4';
+const CACHE_NAME = 'radio-vida-eterna-cache-v6';
 const urlsToCache = [
   '/',
   '/index.html',
   '/info.html',
   '/donacion.html',
   '/cronograma.html',
-  '/contacto.html',
   '/css/styles.css',
   '/script/script.js',
   '/images/Radio_Vida_Eterna_logo.png',
@@ -19,6 +18,7 @@ self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME)
       .then(cache => cache.addAll(urlsToCache))
+  );
 });
 
 self.addEventListener('fetch', (event) => {
@@ -29,13 +29,13 @@ self.addEventListener('fetch', (event) => {
   event.respondWith(
     caches.match(event.request)
       .then(response => response || fetch(event.request)
-          .then(fetchResponse => {
-            const responseClone = fetchResponse.clone();
-            caches.open(CACHE_NAME)
-              .then(cache => cache.put(event.request, responseClone));
-            return fetchResponse;
-          })
-          .catch(() => caches.match('/offline.html'))
+        .then(fetchResponse => {
+          const responseClone = fetchResponse.clone();
+          caches.open(CACHE_NAME)
+            .then(cache => cache.put(event.request, responseClone));
+          return fetchResponse;
+        })
+        .catch(() => caches.match('/index.html'))
       )
   );
 });
