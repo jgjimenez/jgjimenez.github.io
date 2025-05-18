@@ -84,84 +84,40 @@
     </style>
 </head>
 <body class="bg-gray-900 text-white">
-    <!-- Splash Screen -->
     <div class="splash-screen">
-        <img src="/images/logo.png" 
-             alt="Logo Radio Vida Eterna" 
+        <img src="/images/logo.png"
+             alt="Logo Radio Vida Eterna"
              class="splash-logo">
         <h1 class="splash-text">Radio Vida Eterna</h1>
     </div>
 
-    <!-- Contenido Principal -->
-    <div class="flex flex-col items-center mx-auto p-4 w-full max-w-md mb-16">
-        <div class="bg-gray-800 rounded-lg shadow-md w-full p-6 flex flex-col items-center">
-            <h1 class="text-2xl font-semibold text-center text-white mb-4">Radio Vida Eterna</h1>
-            <div class="mb-4">
-                <img src="/images/Radio_Vida_Eterna_logo.png" 
-                     alt="Logo Radio Vida Eterna" 
-                     class="w-48 h-auto rounded-md mx-auto"
-                     loading="lazy">
-            </div>
-            <div class="flex justify-center">
-                <button id="play-pause-btn" 
-                        class="text-white hover:bg-white/10 rounded-full p-4 scale-125 flex items-center"
-                        aria-label="Reproducir/Pausar">
-                    <svg id="play-icon" 
-                         xmlns="http://www.w3.org/2000/svg" 
-                         class="h-10 w-10" 
-                         fill="none" 
-                         viewBox="0 0 24 24" 
-                         stroke="currentColor">
-                        <path stroke-linecap="round" 
-                              stroke-linejoin="round" 
-                              stroke-width="2" 
-                              d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-                        <path stroke-linecap="round" 
-                              stroke-linejoin="round" 
-                              stroke-width="2" 
-                              d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                    <svg id="pause-icon" 
-                         xmlns="http://www.w3.org/2000/svg" 
-                         class="h-10 w-10 hidden" 
-                         fill="none" 
-                         viewBox="0 0 24 24" 
-                         stroke="currentColor">
-                        <path stroke-linecap="round" 
-                              stroke-linejoin="round" 
-                              stroke-width="2" 
-                              d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                </button>
-            </div>
+    <div id="content-container" class="flex flex-col items-center mx-auto p-4 w-full max-w-md mb-16">
         </div>
-    </div>
 
-    <!-- Barra de navegación inferior -->
     <div class="fixed bottom-0 w-full bg-gray-900 border-t border-gray-700">
         <div class="max-w-md mx-auto p-2 flex justify-around">
-            <a href="#" class="text-white p-3 hover:bg-gray-700 rounded-lg transition-colors flex flex-col items-center">
+            <a href="/" data-route="/" class="nav-link text-white p-3 hover:bg-gray-700 rounded-lg transition-colors flex flex-col items-center">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"/>
                 </svg>
                 <span class="text-xs mt-1">Radio</span>
             </a>
-            
-            <a href="info.html" class="text-white p-3 hover:bg-gray-700 rounded-lg transition-colors flex flex-col items-center">
+
+            <a href="/info.html" data-route="/info.html" class="nav-link text-white p-3 hover:bg-gray-700 rounded-lg transition-colors flex flex-col items-center">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
                 </svg>
                 <span class="text-xs mt-1">Info</span>
             </a>
-            
-            <a href="donaciones.html" class="text-white p-3 hover:bg-gray-700 rounded-lg transition-colors flex flex-col items-center">
+
+            <a href="/donaciones.html" data-route="/donaciones.html" class="nav-link text-white p-3 hover:bg-gray-700 rounded-lg transition-colors flex flex-col items-center">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"/>
                 </svg>
                 <span class="text-xs mt-1">Donaciones</span>
             </a>
-            
-            <a href="cronograma.html" class="text-white p-3 hover:bg-gray-700 rounded-lg transition-colors flex flex-col items-center">
+
+            <a href="/cronograma.html" data-route="/cronograma.html" class="nav-link text-white p-3 hover:bg-gray-700 rounded-lg transition-colors flex flex-col items-center">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
                 </svg>
@@ -170,7 +126,7 @@
         </div>
     </div>
 
-    <audio id="audio" 
+    <audio id="audio"
            src="https://cloudstream2036.conectarhosting.com/8414/stream"
            crossorigin="anonymous"></audio>
 
@@ -180,8 +136,81 @@
         const playPauseBtn = document.getElementById('play-pause-btn');
         const playIcon = document.getElementById('play-icon');
         const pauseIcon = document.getElementById('pause-icon');
+        const contentContainer = document.getElementById('content-container');
+        const navLinks = document.querySelectorAll('.nav-link');
 
-        // Configurar Media Session
+        // Función para cargar el contenido de una página
+        async function loadPage(url) {
+            try {
+                const response = await fetch(url);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const html = await response.text();
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(html, 'text/html');
+                const pageContent = doc.querySelector('body > *'); // Selecciona el primer elemento dentro del body de la página cargada
+                if (pageContent) {
+                    contentContainer.innerHTML = pageContent.outerHTML;
+                    // Actualizar el título de la página
+                    document.title = doc.title || 'Radio Vida Eterna';
+                } else {
+                    contentContainer.innerHTML = '<p class="text-red-500">Error al cargar el contenido.</p>';
+                }
+            } catch (error) {
+                console.error('Error al cargar la página:', error);
+                contentContainer.innerHTML = '<p class="text-red-500">No se pudo cargar la página.</p>';
+            }
+        }
+
+        // Función para manejar la navegación
+        function handleNavigation(event) {
+            event.preventDefault();
+            const url = event.currentTarget.getAttribute('href');
+            const route = event.currentTarget.dataset.route;
+            if (url && route) {
+                loadPage(url);
+                history.pushState({ path: route }, '', route); // Actualizar la URL sin recargar
+            }
+        }
+
+        // Event listeners para los enlaces de navegación
+        navLinks.forEach(link => {
+            link.addEventListener('click', handleNavigation);
+        });
+
+        // Manejar la navegación hacia atrás y adelante del navegador
+        window.addEventListener('popstate', (event) => {
+            if (event.state && event.state.path) {
+                loadPage(event.state.path);
+            } else {
+                // Cargar la página principal al inicio o si no hay estado
+                loadPage('/');
+            }
+        });
+
+        // Cargar la página principal al inicio
+        document.addEventListener('DOMContentLoaded', () => {
+            const splashScreen = document.querySelector('.splash-screen');
+            setTimeout(() => {
+                splashScreen.remove();
+            }, 6000);
+
+            initializeMediaSession();
+
+            // Cargar el contenido inicial de la página principal
+            loadPage('/');
+
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.getRegistration().then(registration => {
+                    if (registration) {
+                        registration.update();
+                    }
+                });
+            }
+        });
+
+        // (El resto de tu script de audio y Service Worker se mantiene igual)
         function initializeMediaSession() {
             if ('mediaSession' in navigator) {
                 navigator.mediaSession.metadata = new MediaMetadata({
@@ -229,30 +258,12 @@
 
         // Event Listeners
         playPauseBtn.addEventListener('click', togglePlayback);
-        
+
         audio.addEventListener('play', updateInterface);
         audio.addEventListener('pause', updateInterface);
         audio.addEventListener('ended', () => {
             audio.currentTime = 0;
             updateInterface();
-        });
-
-        // Inicialización
-        document.addEventListener('DOMContentLoaded', () => {
-            const splashScreen = document.querySelector('.splash-screen');
-            setTimeout(() => {
-                splashScreen.remove();
-            }, 6000);
-
-            initializeMediaSession();
-            
-            if ('serviceWorker' in navigator) {
-                navigator.serviceWorker.getRegistration().then(registration => {
-                    if (registration) {
-                        registration.update();
-                    }
-                });
-            }
         });
 
         // Registrar Service Worker
