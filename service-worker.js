@@ -2,6 +2,7 @@ const CACHE_NAME = 'radio-vida-eterna-cache-v2';
 const urlsToCache = [
     '/',
     '/index.html',
+    '/radio.html',
     '/info.html',
     '/donaciones.html',
     '/cronograma.html',
