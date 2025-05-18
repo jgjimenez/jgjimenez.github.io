@@ -33,50 +33,75 @@
         </div>
         <audio id="audio" src="https://cloudstream2036.conectarhosting.com/8414/stream"></audio>
     </div>
-    <script>
-        const audio = document.getElementById('audio');
-        const playPauseBtn = document.getElementById('play-pause-btn');
-        const playIcon = document.getElementById('play-icon');
-        const pauseIcon = document.getElementById('pause-icon');
-        let isPlaying = false;
+  <script>
+    const audio = document.getElementById('audio');
+    const playPauseBtn = document.getElementById('play-pause-btn');
+    const playIcon = document.getElementById('play-icon');
+    const pauseIcon = document.getElementById('pause-icon');
+    let isPlaying = false;
 
-        function playPause() {
-            if (audio.paused) {
-                audio.play().then(() => {
-                    isPlaying = true;
-                    playIcon.classList.add('hidden');
-                    pauseIcon.classList.remove('hidden');
-                }).catch(error => {
-                    console.error("Error al reproducir:", error);
-                    isPlaying = false;
-                    playPauseBtn.dispatchEvent(new Event('click'));
-                });
-            } else {
-                audio.pause();
-                isPlaying = false;
-                playIcon.classList.remove('hidden');
-                pauseIcon.classList.add('hidden');
-            }
-        }
+    // Configurar Media Session
+    if ('mediaSession' in navigator) {
+        navigator.mediaSession.setActionHandler('play', playPause);
+        navigator.mediaSession.setActionHandler('pause', playPause);
+        
+        // Actualizar metadatos (personaliza con tu información)
+        navigator.mediaSession.metadata = new MediaMetadata({
+            title: 'Radio Vida Eterna',
+            artist: 'Transmitiendo la palabra de Dios',
+            artwork: [
+                { src: 'images/Radio_Vida_Eterna_logo_192.png', sizes: '192x192', type: 'image/png' },
+                { src: 'images/Radio_Vida_Eterna_logo_512.png', sizes: '512x512', type: 'image/png' },
+            ]
+        });
+    }
 
-        playPauseBtn.addEventListener('click', playPause);
-        audio.addEventListener('ended', () => {
-            isPlaying = false;
-            playIcon.classList.remove('hidden');
-            pauseIcon.classList.add('hidden');
-        });
+    function updateMediaSession(state) {
+        if ('mediaSession' in navigator) {
+            navigator.mediaSession.playbackState = state;
+        }
+    }
 
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/service-worker.js')
-                    .then(registration => {
-                        console.log('Service Worker registrado:', registration);
-                    })
-                    .catch(error => {
-                        console.error('Error al registrar el Service Worker:', error);
-                    });
-            });
-        }
-    </script>
+    function playPause() {
+        if (audio.paused) {
+            audio.play().then(() => {
+                isPlaying = true;
+                playIcon.classList.add('hidden');
+                pauseIcon.classList.remove('hidden');
+                updateMediaSession('playing');
+            }).catch(error => {
+                console.error("Error al reproducir:", error);
+            });
+        } else {
+            audio.pause();
+            isPlaying = false;
+            playIcon.classList.remove('hidden');
+            pauseIcon.classList.add('hidden');
+            updateMediaSession('paused');
+        }
+    }
+
+    playPauseBtn.addEventListener('click', playPause);
+    
+    audio.addEventListener('ended', () => {
+        isPlaying = false;
+        playIcon.classList.remove('hidden');
+        pauseIcon.classList.add('hidden');
+        updateMediaSession('none');
+    });
+
+    // Service Worker
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/service-worker.js')
+                .then(registration => {
+                    console.log('Service Worker registrado:', registration);
+                })
+                .catch(error => {
+                    console.error('Error al registrar el Service Worker:', error);
+                });
+        });
+    }
+</script>
 </body>
 </html>
