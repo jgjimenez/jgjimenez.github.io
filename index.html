@@ -17,12 +17,7 @@
             font-family: 'Inter', sans-serif;
             display: flex;
             flex-direction: column;
-            justify-content: center;
             min-height: 100vh;
-        }
-        #audio {
-            position: absolute;
-            left: -9999px;
         }
         .splash-screen {
             position: fixed;
@@ -30,7 +25,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6),
                        url('/images/fondo.jpg') center/cover;
             display: flex;
             justify-content: center;
@@ -53,13 +48,18 @@
 
         .splash-text {
             color: white;
-            font-family: 'Rock Salt', regular;
+            font-family: 'Permanent Marker', cursive;
             font-size: 3rem;
             text-align: center;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
             max-width: 90vw;
             padding: 0 20px;
             line-height: 1.2;
+        }
+
+        #nav-container {
+            backdrop-filter: blur(5px);
+            z-index: 50;
         }
 
         @media (max-width: 768px) {
@@ -80,9 +80,11 @@
         <h1 class="splash-text">Radio Vida Eterna</h1>
     </div>
 
-    <!-- Contenido Dinámico -->
-    <div id="app">
-        <!-- Contenido Principal -->
+    <!-- Audio Persistente -->
+    <audio id="audio" src="https://cloudstream2036.conectarhosting.com/8414/stream" crossorigin="anonymous"></audio>
+
+    <!-- Contenido Principal -->
+    <div id="app" class="flex-1">
         <div class="flex flex-col items-center mx-auto p-4 w-full max-w-md mb-16">
             <div class="bg-gray-800 rounded-lg shadow-md w-full p-6 flex flex-col items-center">
                 <h1 class="text-2xl font-semibold text-center text-white mb-4">Radio Vida Eterna</h1>
@@ -107,34 +109,47 @@
                 </div>
             </div>
         </div>
-
-        <!-- Barra de Navegación -->
-        <div class="fixed bottom-0 w-full bg-gray-900 border-t border-gray-700">
-            <div class="max-w-md mx-auto p-2 flex justify-around">
-                <a href="/" class="text-white p-3 hover:bg-gray-700 rounded-lg transition-colors flex flex-col items-center">
-                    <!-- Icono Radio -->
-                </a>
-                <a href="/info.html" class="text-white p-3 hover:bg-gray-700 rounded-lg transition-colors flex flex-col items-center">
-                    <!-- Icono Info -->
-                </a>
-                <a href="/donacion.html" class="text-white p-3 hover:bg-gray-700 rounded-lg transition-colors flex flex-col items-center">
-                    <!-- Icono Donaciones -->
-                </a>
-                <a href="/cronograma.html" class="text-white p-3 hover:bg-gray-700 rounded-lg transition-colors flex flex-col items-center">
-                    <!-- Icono Cronograma -->
-                </a>
-            </div>
-        </div>
     </div>
 
-    <audio id="audio" src="https://cloudstream2036.conectarhosting.com/8414/stream" crossorigin="anonymous"></audio>
+    <!-- Barra de Navegación -->
+    <div id="nav-container" class="fixed bottom-0 w-full bg-gray-900/80 border-t border-gray-700">
+        <div class="max-w-md mx-auto p-2 flex justify-around">
+            <a href="/" class="text-white p-3 hover:bg-gray-700 rounded-lg transition-colors flex flex-col items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"/>
+                </svg>
+                <span class="text-xs mt-1">Radio</span>
+            </a>
+            
+            <a href="/info.html" class="text-white p-3 hover:bg-gray-700 rounded-lg transition-colors flex flex-col items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                <span class="text-xs mt-1">Info</span>
+            </a>
+            
+            <a href="/donacion.html" class="text-white p-3 hover:bg-gray-700 rounded-lg transition-colors flex flex-col items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"/>
+                </svg>
+                <span class="text-xs mt-1">Donaciones</span>
+            </a>
+            
+            <a href="/cronograma.html" class="text-white p-3 hover:bg-gray-700 rounded-lg transition-colors flex flex-col items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                </svg>
+                <span class="text-xs mt-1">Cronograma</span>
+            </a>
+        </div>
+    </div>
 
     <script>
         // Variables globales
         let audio = document.getElementById('audio');
         let playPauseBtn, playIcon, pauseIcon;
 
-        // Sistema de Navegación SPA
+        // Función para cargar páginas
         async function loadPage(url) {
             try {
                 const response = await fetch(url);
@@ -145,16 +160,13 @@
                 // Actualizar contenido
                 document.getElementById('app').innerHTML = doc.getElementById('app').innerHTML;
                 
-                // Reasignar elementos
-                audio = document.getElementById('audio') || audio;
-                playPauseBtn = document.getElementById('play-pause-btn');
-                playIcon = document.getElementById('play-icon');
-                pauseIcon = document.getElementById('pause-icon');
+                // Actualizar navegación
+                document.getElementById('nav-container').innerHTML = doc.getElementById('nav-container').innerHTML;
                 
-                // Reasignar eventos
-                if(playPauseBtn) playPauseBtn.addEventListener('click', togglePlayback);
+                // Reasignar elementos
+                audio = document.getElementById('audio');
+                initAudioControls();
                 updateInterface();
-                initializeMediaSession();
                 
                 window.scrollTo(0, 0);
             } catch (error) {
@@ -162,7 +174,7 @@
             }
         }
 
-        // Control de Navegación
+        // Control de navegación
         document.addEventListener('click', (e) => {
             const link = e.target.closest('a');
             if (link) {
@@ -175,16 +187,27 @@
             }
         });
 
+        // Manejar historial
         window.addEventListener('popstate', () => loadPage(location.pathname));
 
-        // Control de Audio
+        // Control de audio
         function togglePlayback() {
             if (audio.paused) {
-                audio.play().catch(console.error);
+                audio.play().catch(error => console.error('Error al reproducir:', error));
             } else {
                 audio.pause();
             }
             updateInterface();
+        }
+
+        function initAudioControls() {
+            playPauseBtn = document.getElementById('play-pause-btn');
+            playIcon = document.getElementById('play-icon');
+            pauseIcon = document.getElementById('pause-icon');
+            
+            if (playPauseBtn) {
+                playPauseBtn.addEventListener('click', togglePlayback);
+            }
         }
 
         function updateInterface() {
@@ -201,6 +224,21 @@
             }
         }
 
+        // Inicialización
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                document.querySelector('.splash-screen').remove();
+                initAudioControls();
+                initializeMediaSession();
+            }, 5000);
+
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.register('/service-worker.js')
+                    .then(reg => console.log('Service Worker registrado:', reg.scope))
+                    .catch(err => console.error('Error SW:', err));
+            }
+        });
+
         function initializeMediaSession() {
             if ('mediaSession' in navigator) {
                 navigator.mediaSession.metadata = new MediaMetadata({
@@ -216,20 +254,6 @@
                 updatePlaybackState();
             }
         }
-
-        // Inicialización
-        document.addEventListener('DOMContentLoaded', () => {
-            setTimeout(() => {
-                document.querySelector('.splash-screen')?.remove();
-            }, 6000);
-
-            initializeMediaSession();
-            if ('serviceWorker' in navigator) {
-                navigator.serviceWorker.register('/service-worker.js')
-                    .then(registration => console.log('SW registrado:', registration.scope))
-                    .catch(console.error);
-            }
-        });
     </script>
 </body>
 </html>
