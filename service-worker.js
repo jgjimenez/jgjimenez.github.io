@@ -31,4 +31,17 @@ self.addEventListener('fetch', (event) => {
 });
 
 self.addEventListener('activate', (event) => {
-  const cacheWhitelist = [CACHE_NAME];
+  event.waitUntil(
+    caches.keys().then((cacheNames) => {
+      return Promise.all(
+        cacheNames.map((cacheName) => {
+          if (cacheName !== CACHE_NAME) {
+            console.log('Eliminando caché antigua:', cacheName);
+            return caches.delete(cacheName);
+          }
+          return null;
+        })
+      );
+    })
+  );
+});
