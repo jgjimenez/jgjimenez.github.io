@@ -24,11 +24,3 @@ self.addEventListener('fetch', (event) => {
       .then((response) => {
         if (response) {
           return response;
-        }
-        return fetch(event.request);
-      })
-  );
-});
-
-self.addEventListener('activate', (event) => {
-  const
