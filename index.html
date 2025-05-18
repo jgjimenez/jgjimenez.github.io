@@ -133,15 +133,36 @@
             });
         }
 
-        // Evitar que el audio se silencie en segundo plano (puede no ser completamente efectivo en todos los navegadores)
-        audio.addEventListener('pause', () => {
-            if (isPlaying && !document.hidden) {
-                // Si se pausó mientras estaba reproduciendo en primer plano, intenta reanudar
-                audio.play().catch(error => {
-                    console.warn("Intento de reanudación fallido:", error);
-                });
-            }
-        });
+        // Manejar la pérdida de audio focus (más específico para interrupciones transitorias)
+        if ('mediaSession' in navigator && navigator.mediaSession.setActionHandler) {
+            navigator.mediaSession.setActionHandler('pause', () => {
+                if (isPlaying) {
+                    wasPlayingBeforeInterruption = true;
+                    audio.pause();
+                    isPlaying = false;
+                    playIcon.classList.remove('hidden');
+                    pauseIcon.classList.add('hidden');
+                    updateMediaSessionState('paused');
+                    console.log('Audio pausado por solicitud de pausa del sistema');
+                }
+            });
+            navigator.mediaSession.setActionHandler('play', () => {
+                if (wasPlayingBeforeInterruption && audio.paused) {
+                    audio.play().then(() => {
+                        isPlaying = true;
+                        wasPlayingBeforeInterruption = false;
+                        playIcon.classList.add('hidden');
+                        pauseIcon.classList.remove('hidden');
+                        updateMediaSessionState('playing');
+                        console.log('Audio reanudado por solicitud de reproducción del sistema');
+                    }).catch(error => {
+                        console.error("Error al reanudar por solicitud de reproducción:", error);
+                        wasPlayingBeforeInterruption = false;
+                        updateMediaSessionState('paused');
+                    });
+                }
+            });
+        }
     </script>
 </body>
 </html>
