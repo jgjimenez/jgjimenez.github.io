@@ -13,74 +13,74 @@
     <meta name="apple-mobile-web-app-title" content="Radio Vida Eterna">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start; /* Cambiado a flex-start para que el contenido empiece desde arriba */
-            min-height: 100vh;
-        }
-        #audio {
-            position: absolute;
-            left: -9999px;
-        }
-        /* Estilos del Splash Screen */
-        .splash-screen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-                            url('/images/fondo.jpg') center/cover;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            z-index: 1000;
-            animation: fadeOut 1s ease-out 5s forwards;
-        }
+    body {
+        font-family: 'Inter', sans-serif;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start; /* Cambiado para que el contenido empiece desde arriba */
+        min-height: 100vh;
+    }
+    #audio {
+        position: absolute;
+        left: -9999px;
+    }
+    /* Estilos del Splash Screen */
+    .splash-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+                        url('/images/fondo.jpg') center/cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        z-index: 1000;
+        animation: fadeOut 1s ease-out 5s forwards;
+    }
 
-        @keyframes fadeOut {
-            from { opacity: 1; }
-            to { opacity: 0; visibility: hidden; }
-        }
+    @keyframes fadeOut {
+        from { opacity: 1; }
+        to { opacity: 0; visibility: hidden; }
+    }
 
+    .splash-logo {
+        width: 250px;
+        max-width: 60vw;
+        margin-bottom: 1.5rem;
+    }
+
+    .splash-text {
+        color: white;
+        font-family: 'Permanent Marker', cursive;
+        font-size: 3rem;
+        text-align: center;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+        max-width: 90vw;
+        padding: 0 20px;
+        line-height: 1.2;
+    }
+
+    @media (max-width: 768px) {
         .splash-logo {
-            width: 250px;
-            max-width: 60vw;
-            margin-bottom: 1.5rem;
+            width: 180px;
         }
-
         .splash-text {
-            color: white;
-            font-family: 'Permanent Marker', cursive;
-            font-size: 3rem;
-            text-align: center;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
-            max-width: 90vw;
-            padding: 0 20px;
-            line-height: 1.2;
+            font-size: 2.2rem;
         }
+    }
 
-        @media (max-width: 768px) {
-            .splash-logo {
-                width: 180px;
-            }
-            .splash-text {
-                font-size: 2.2rem;
-            }
+    @media (max-width: 480px) {
+        .splash-logo {
+            width: 150px;
         }
-
-        @media (max-width: 480px) {
-            .splash-logo {
-                width: 150px;
-            }
-            .splash-text {
-                font-size: 1.8rem;
-            }
+        .splash-text {
+            font-size: 1.8rem;
         }
-    </style>
+    }
+</style>
 </head>
 <body class="bg-gray-900 text-white">
     <div class="splash-screen">
