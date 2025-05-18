@@ -4,8 +4,7 @@ const urlsToCache = [
   '/index.html',
   '/css/styles.css',
   '/script/script.js',
-  '/images/Radio_Vida_Eterna_logo.png',
-  'https://cloudstream2036.conectarhosting.com/8414/stream' // Agrega la URL del streaming
+  '/images/Radio_Vida_Eterna_logo.png' // Removí el stream de aquí
 ];
 
 self.addEventListener('install', (event) => {
@@ -19,6 +18,11 @@ self.addEventListener('install', (event) => {
 });
 
 self.addEventListener('fetch', (event) => {
+  // Excluir el stream de audio del cache
+  if (event.request.url.includes('conectarhosting.com/8414/stream')) {
+    return fetch(event.request); // No usar cache para el stream
+  }
+  
   event.respondWith(
     caches.match(event.request)
       .then((response) => {
