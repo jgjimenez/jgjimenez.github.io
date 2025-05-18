@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#1F2937">
     <title>Radio Vida Eterna</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="manifest" href="/manifest.json">
     <link rel="apple-touch-icon" href="/images/Radio_Vida_Eterna_logo_192.png">
@@ -32,7 +32,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
                        url('/images/fondo.jpg') center/cover;
             display: flex;
             justify-content: center;
@@ -47,46 +47,55 @@
             to { opacity: 0; visibility: hidden; }
         }
 
-        .handwriting-animation {
-            font-family: 'Dancing Script', cursive;
-            font-size: 4rem;
+        .splash-logo {
+            width: 200px;
+            max-width: 50vw;
+            margin-bottom: 2rem;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .splash-text {
             color: white;
+            font-size: 2.5rem;
+            font-weight: 700;
             text-align: center;
-            position: relative;
-            overflow: hidden;
-            white-space: nowrap;
-            margin: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            max-width: 90vw;
+            padding: 0 20px;
         }
 
-        .handwriting-animation::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: #000;
-            animation: typing 4s steps(40) 1s forwards,
-                       blink-caret 0.75s step-end infinite;
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
         }
 
-        @keyframes typing {
-            from { width: 0 }
-            to { width: 100% }
+        @media (max-width: 768px) {
+            .splash-logo {
+                width: 150px;
+            }
+            .splash-text {
+                font-size: 2rem;
+            }
         }
 
-        @keyframes blink-caret {
-            from, to { background-color: transparent }
-            50% { background-color: white; }
+        @media (max-width: 480px) {
+            .splash-logo {
+                width: 120px;
+            }
+            .splash-text {
+                font-size: 1.75rem;
+            }
         }
     </style>
 </head>
 <body class="bg-gray-900 text-white">
     <!-- Splash Screen -->
     <div class="splash-screen">
-        <div class="handwriting-animation">
-            Radio Vida Eterna
-        </div>
+        <img src="/images/logo.png" 
+             alt="Logo Radio Vida Eterna" 
+             class="splash-logo">
+        <h1 class="splash-text">Radio Vida Eterna</h1>
     </div>
 
     <!-- Contenido Principal -->
@@ -94,7 +103,7 @@
         <div class="bg-gray-800 rounded-lg shadow-md w-full p-6 flex flex-col items-center">
             <h1 class="text-2xl font-semibold text-center text-white mb-4">Radio Vida Eterna</h1>
             <div class="mb-4">
-                <img src="/images/Radio_Vida_Eterna_logo.png" 
+                <img src="/images/logo.png" 
                      alt="Logo Radio Vida Eterna" 
                      class="w-48 h-auto rounded-md mx-auto"
                      loading="lazy">
@@ -206,7 +215,7 @@
             const splashScreen = document.querySelector('.splash-screen');
             setTimeout(() => {
                 splashScreen.remove();
-            }, 6000); // 5s de animación + 1s de fade out
+            }, 6000); // 5s de visualización + 1s de animación
 
             initializeMediaSession();
             
