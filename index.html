@@ -9,6 +9,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="manifest" href="/manifest.json">
     <link rel="apple-touch-icon" href="/images/Radio_Vida_Eterna_logo_192.png">
+    <!-- Meta tags para iOS -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="Radio Vida Eterna">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -19,7 +20,6 @@
             flex-direction: column;
             justify-content: center;
             min-height: 100vh;
-            margin: 0; /* Asegurar que el body no tenga márgenes */
         }
         #audio {
             position: absolute;
@@ -33,7 +33,7 @@
             width: 100%;
             height: 100%;
             background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-                        url('/images/fondo.jpg') center/cover;
+                       url('/images/fondo.jpg') center/cover;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -41,7 +41,7 @@
             z-index: 1000;
             animation: fadeOut 1s ease-out 5s forwards;
         }
-
+        
         @keyframes fadeOut {
             from { opacity: 1; }
             to { opacity: 0; visibility: hidden; }
@@ -81,307 +81,87 @@
                 font-size: 1.8rem;
             }
         }
-
-        /* Estilos para el contenedor principal */
-        .main-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin: 0 auto;
-            padding: 1rem;
-            width: 100%;
-            max-width: 768px; /* Ajusta el ancho máximo según necesites */
-            margin-bottom: 6rem; /* Espacio para la barra de navegación inferior */
-        }
-
-        .page-content {
-            display: none; /* Ocultar inicialmente todas las secciones de contenido */
-            width: 100%;
-        }
-
-        .page-content.active {
-            display: flex; /* Mostrar la sección activa */
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .info-content, .donations-content, .schedule-content {
-            background-color: #374151;
-            padding: 1.5rem;
-            border-radius: 0.5rem;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-            margin-bottom: 1rem;
-            width: 100%;
-        }
-
-        .donations-content {
-            text-align: center;
-        }
-
-        .donate-button {
-            background-color: #4f46e5;
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 0.375rem;
-            text-decoration: none;
-            font-weight: 500;
-            transition: background-color 0.2s ease-in-out;
-        }
-        .donate-button:hover {
-            background-color: #6366f1;
-        }
-
-        .schedule-content ul {
-            list-style: none;
-            padding: 0;
-        }
-        .schedule-content li {
-            padding: 0.75rem 0;
-            border-bottom: 1px solid #4b5563;
-        }
-        .schedule-content li:last-child {
-            border-bottom: none;
-        }
-        .schedule-content span {
-            display: block;
-            color: #d1d5db;
-        }
-        .schedule-content .time {
-            font-weight: bold;
-            color: #f3f4f6;
-        }
-        .schedule-content .program {
-            font-style: italic;
-        }
     </style>
 </head>
 <body class="bg-gray-900 text-white">
+    <!-- Splash Screen -->
     <div class="splash-screen">
-        <img src="/images/logo.png"
-             alt="Logo Radio Vida Eterna"
+        <img src="/images/logo.png" 
+             alt="Logo Radio Vida Eterna" 
              class="splash-logo">
         <h1 class="splash-text">Radio Vida Eterna</h1>
     </div>
 
-    <div id="main-content" class="main-container">
-        <div id="home" class="page-content active">
-            <div class="bg-gray-800 rounded-lg shadow-md w-full p-6 flex flex-col items-center">
-                <h1 class="text-2xl font-semibold text-center text-white mb-4">Radio Vida Eterna</h1>
-                <div class="mb-4">
-                    <img src="/images/Radio_Vida_Eterna_logo.png"
-                         alt="Logo Radio Vida Eterna"
-                         class="w-48 h-auto rounded-md mx-auto"
-                         loading="lazy">
-                </div>
-                <div class="flex justify-center">
-                    <button id="play-pause-btn"
-                            class="text-white hover:bg-white/10 rounded-full p-4 scale-125 flex items-center"
-                            aria-label="Reproducir/Pausar">
-                        <svg id="play-icon"
-                             xmlns="http://www.w3.org/2000/svg"
-                             class="h-10 w-10"
-                             fill="none"
-                             viewBox="0 0 24 24"
-                             stroke="currentColor">
-                            <path stroke-linecap="round"
-                                  stroke-linejoin="round"
-                                  stroke-width="2"
-                                  d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-                            <path stroke-linecap="round"
-                                  stroke-linejoin="round"
-                                  stroke-width="2"
-                                  d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                        <svg id="pause-icon"
-                             xmlns="http://www.w3.org/2000/svg"
-                             class="h-10 w-10 hidden"
-                             fill="none"
-                             viewBox="0 0 24 24"
-                             stroke="currentColor">
-                            <path stroke-linecap="round"
-                                  stroke-linejoin="round"
-                                  stroke-width="2"
-                                  d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <div id="info" class="page-content">
-            <div class="info-content">
-                <h2>Información sobre Radio Vida Eterna</h2>
-                <p>Radio Vida Eterna es una emisora dedicada a transmitir la palabra de Dios, llevando mensajes de esperanza y fe a nuestros oyentes.</p>
-                <p>Nuestra misión es ser un canal de bendición y edificación para la comunidad, ofreciendo programación variada con enseñanzas bíblicas, música cristiana y reflexiones inspiradoras.</p>
-                <p>Puedes contactarnos a través de nuestro correo electrónico: info@radiovidaeterna.com o seguirnos en nuestras redes sociales.</p>
-            </div>
-        </div>
-
-        <div id="donaciones" class="page-content">
-            <div class="donations-content">
-                <h2>Apoya Radio Vida Eterna</h2>
-                <p>Tu generosidad nos permite seguir transmitiendo mensajes de fe y esperanza a miles de oyentes.</p>
-                <p>Si deseas apoyar nuestro ministerio, puedes hacer tu donación a través del siguiente enlace:</p>
-                <a href="#" class="donate-button">Donar Ahora</a>
-                <p class="mt-4 text-sm text-gray-400">¡Que Dios te bendiga grandemente!</p>
-            </div>
-        </div>
-
-            <div id="cronograma" class="page-content">
+    <!-- Contenido Principal -->
+    <div class="flex flex-col items-center mx-auto p-4 w-full max-w-md mb-16">
         <div class="bg-gray-800 rounded-lg shadow-md w-full p-6 flex flex-col items-center">
-            <h2 class="text-xl font-semibold text-white mb-4 text-center">Programación Semanal</h2>
-
-            <div class="mb-4 w-full">
-                <div class="bg-gray-700 rounded-lg shadow-md p-4">
-                    <h3 class="text-lg font-semibold text-gray-300 mb-2">Lunes a Viernes</h3>
-                    <ul class="list-none space-y-3">
-                        <li class="flex items-center">
-                            <span class="w-24 font-semibold text-gray-400">2 AM</span>
-                            <span class="text-white">Pr. Hugo Gambetta</span>
-                        </li>
-                        <li class="flex items-center">
-                            <span class="w-24 font-semibold text-gray-400">6 AM</span>
-                            <span class="text-white">La Voz de La Esperanza</span>
-                        </li>
-                        <li class="flex items-center">
-                            <span class="w-24 font-semibold text-gray-400">9 AM</span>
-                            <span class="text-white">Pr. Robert Costa</span>
-                        </li>
-                        <li class="flex items-center">
-                            <span class="w-24 font-semibold text-gray-400">11 AM</span>
-                            <span class="text-white">Clínica Abierta</span>
-                        </li>
-                        <li class="flex items-center">
-                            <span class="w-24 font-semibold text-gray-400">1 PM</span>
-                            <span class="text-white">La Biblia te Responde (Lunes a Viernes)</span>
-                        </li>
-                        <li class="flex items-center">
-                            <span class="w-24 font-semibold text-gray-400">3 PM</span>
-                            <span class="text-white">Una hora para niños: Tu Historia Preferida y alabanzas (Lunes a Viernes)</span>
-                        </li>
-                        <li class="flex items-center">
-                            <span class="w-24 font-semibold text-gray-400">4 PM</span>
-                            <span class="text-white">El Psicólogo y Pr. Fernando García (Lunes y Miércoles)</span>
-                        </li>
-                        <li class="flex items-center">
-                            <span class="w-24 font-semibold text-gray-400">4 PM</span>
-                            <span class="text-white">Salvemos tu Hogar (Martes y Jueves)</span>
-                        </li>
-                        <li class="flex items-center">
-                            <span class="w-24 font-semibold text-gray-400">7 PM</span>
-                            <span class="text-white">Pr. Hugo Gambetta</span>
-                        </li>
-                        <li class="flex items-center">
-                            <span class="w-24 font-semibold text-gray-400">10 PM</span>
-                            <span class="text-white">Programa la Biblia (Lunes a Domingo)</span>
-                        </li>
-                    </ul>
-                </div>
+            <h1 class="text-2xl font-semibold text-center text-white mb-4">Radio Vida Eterna</h1>
+            <div class="mb-4">
+                <img src="/images/Radio_Vida_Eterna_logo.png" 
+                     alt="Logo Radio Vida Eterna" 
+                     class="w-48 h-auto rounded-md mx-auto"
+                     loading="lazy">
             </div>
-
-            <div class="mb-4 w-full">
-                <div class="bg-gray-700 rounded-lg shadow-md p-4">
-                    <h3 class="text-lg font-semibold text-gray-300 mb-2">Sábado</h3>
-                    <ul class="list-none space-y-3">
-                        <li class="flex items-center">
-                            <span class="w-24 font-semibold text-gray-400">6 AM</span>
-                            <span class="text-white">La Voz de La Esperanza</span>
-                        </li>
-                        <li class="flex items-center">
-                            <span class="w-24 font-semibold text-gray-400">8 AM</span>
-                            <span class="text-white">Escuela Sabática</span>
-                        </li>
-                        <li class="flex items-center">
-                            <span class="w-24 font-semibold text-gray-400">9 AM</span>
-                            <span class="text-white">Notas de Elena: Citas de La Escuela Sabática</span>
-                        </li>
-                        <li class="flex items-center">
-                            <span class="w-24 font-semibold text-gray-400">9:30 AM</span>
-                            <span class="text-white">Sábado Especial RedAvenir y Culto Divino (11 AM)</span>
-                        </li>
-                        <li class="flex items-center">
-                            <span class="w-24 font-semibold text-gray-400">1 PM</span>
-                            <span class="text-white">Palabra de Dios con el Evg. Pedro L. Rivera</span>
-                        </li>
-                        <li class="flex items-center">
-                            <span class="w-24 font-semibold text-gray-400">3 PM</span>
-                            <span class="text-white">Documentales Cristianos</span>
-                        </li>
-                        <li class="flex items-center">
-                            <span class="w-24 font-semibold text-gray-400">5 PM</span>
-                            <span class="text-white">Programa La Biblia</span>
-                        </li>
-                        <li class="flex items-center">
-                            <span class="w-24 font-semibold text-gray-400">7 PM</span>
-                            <span class="text-white">Pr. Hugo Gambetta</span>
-                        </li>
-                        <li class="flex items-center">
-                            <span class="w-24 font-semibold text-gray-400">10 PM</span>
-                            <span class="text-white">Programa la Biblia</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="w-full">
-                <div class="bg-gray-700 rounded-lg shadow-md p-4">
-                    <h3 class="text-lg font-semibold text-gray-300 mb-2">Domingo</h3>
-                    <ul class="list-none space-y-3">
-                        <li class="flex items-center">
-                            <span class="w-24 font-semibold text-gray-400">6 AM</span>
-                            <span class="text-white">La Voz de La Esperanza</span>
-                        </li>
-                        <li class="flex items-center">
-                            <span class="w-24 font-semibold text-gray-400">11 AM</span>
-                            <span class="text-white">Documental - Dilo Al Mundo</span>
-                        </li>
-                        <li class="flex items-center">
-                            <span class="w-24 font-semibold text-gray-400">1 PM</span>
-                            <span class="text-white">Palabra de Dios Evg. Pedro L. Rivera</span>
-                        </li>
-                        <li class="flex items-center">
-                            <span class="w-24 font-semibold text-gray-400">3 PM</span>
-                            <span class="text-white">Documental Pr. Doug Batchelor o Logos TV</span>
-                        </li>
-                        <li class="flex items-center">
-                            <span class="w-24 font-semibold text-gray-400">7 PM</span>
-                            <span class="text-white">Pr. Hugo Gambetta</span>
-                        </li>
-                        <li class="flex items-center">
-                            <span class="w-24 font-semibold text-gray-400">10 AM</span>
-                            <span class="text-white">Programa la Biblia</span>
-                        </li>
-                    </ul>
-                </div>
+            <div class="flex justify-center">
+                <button id="play-pause-btn" 
+                        class="text-white hover:bg-white/10 rounded-full p-4 scale-125 flex items-center"
+                        aria-label="Reproducir/Pausar">
+                    <svg id="play-icon" 
+                         xmlns="http://www.w3.org/2000/svg" 
+                         class="h-10 w-10" 
+                         fill="none" 
+                         viewBox="0 0 24 24" 
+                         stroke="currentColor">
+                        <path stroke-linecap="round" 
+                              stroke-linejoin="round" 
+                              stroke-width="2" 
+                              d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                        <path stroke-linecap="round" 
+                              stroke-linejoin="round" 
+                              stroke-width="2" 
+                              d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <svg id="pause-icon" 
+                         xmlns="http://www.w3.org/2000/svg" 
+                         class="h-10 w-10 hidden" 
+                         fill="none" 
+                         viewBox="0 0 24 24" 
+                         stroke="currentColor">
+                        <path stroke-linecap="round" 
+                              stroke-linejoin="round" 
+                              stroke-width="2" 
+                              d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </button>
             </div>
         </div>
     </div>
-    </div>
 
+    <!-- Barra de navegación inferior -->
     <div class="fixed bottom-0 w-full bg-gray-900 border-t border-gray-700">
         <div class="max-w-md mx-auto p-2 flex justify-around">
-            <a href="" data-page="home" class="nav-link text-white p-3 hover:bg-gray-700 rounded-lg transition-colors flex flex-col items-center">
+            <a href="#" class="text-white p-3 hover:bg-gray-700 rounded-lg transition-colors flex flex-col items-center">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"/>
                 </svg>
                 <span class="text-xs mt-1">Radio</span>
             </a>
-
-            <a href="" data-page="info" class="nav-link text-white p-3 hover:bg-gray-700 rounded-lg transition-colors flex flex-col items-center">
+            
+            <a href="info.html" class="text-white p-3 hover:bg-gray-700 rounded-lg transition-colors flex flex-col items-center">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
                 </svg>
                 <span class="text-xs mt-1">Info</span>
             </a>
-
-            <a href="" data-page="donaciones" class="nav-link text-white p-3 hover:bg-gray-700 rounded-lg transition-colors flex flex-col items-center">
+            
+            <a href="donaciones.html" class="text-white p-3 hover:bg-gray-700 rounded-lg transition-colors flex flex-col items-center">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"/>
                 </svg>
                 <span class="text-xs mt-1">Donaciones</span>
             </a>
-
-            <a href="" data-page="cronograma" class="nav-link text-white p-3 hover:bg-gray-700 rounded-lg transition-colors flex flex-col items-center">
+            
+            <a href="cronograma.html" class="text-white p-3 hover:bg-gray-700 rounded-lg transition-colors flex flex-col items-center">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
                 </svg>
@@ -390,11 +170,106 @@
         </div>
     </div>
 
-    <audio id="audio"
+    <audio id="audio" 
            src="https://cloudstream2036.conectarhosting.com/8414/stream"
            crossorigin="anonymous"></audio>
 
-    <script src="/script/script.js"></script>
-    
+    <script>
+        // Elementos del DOM
+        const audio = document.getElementById('audio');
+        const playPauseBtn = document.getElementById('play-pause-btn');
+        const playIcon = document.getElementById('play-icon');
+        const pauseIcon = document.getElementById('pause-icon');
+
+        // Configurar Media Session
+        function initializeMediaSession() {
+            if ('mediaSession' in navigator) {
+                navigator.mediaSession.metadata = new MediaMetadata({
+                    title: 'Radio Vida Eterna',
+                    artist: 'Transmitiendo la palabra de Dios',
+                    artwork: [
+                        { src: '/images/Radio_Vida_Eterna_logo_512.png', sizes: '512x512', type: 'image/png' },
+                        { src: '/images/Radio_Vida_Eterna_logo_192.png', sizes: '192x192', type: 'image/png' }
+                    ]
+                });
+
+                navigator.mediaSession.setActionHandler('play', togglePlayback);
+                navigator.mediaSession.setActionHandler('pause', togglePlayback);
+                updatePlaybackState();
+            }
+        }
+
+        function updatePlaybackState() {
+            if ('mediaSession' in navigator) {
+                navigator.mediaSession.playbackState = audio.paused ? 'paused' : 'playing';
+            }
+        }
+
+        function togglePlayback() {
+            if (audio.paused) {
+                audio.play().catch(error => {
+                    console.error('Error al reproducir:', error);
+                });
+            } else {
+                audio.pause();
+            }
+            updateInterface();
+        }
+
+        function updateInterface() {
+            if (audio.paused) {
+                playIcon.classList.remove('hidden');
+                pauseIcon.classList.add('hidden');
+            } else {
+                playIcon.classList.add('hidden');
+                pauseIcon.classList.remove('hidden');
+            }
+            updatePlaybackState();
+        }
+
+        // Event Listeners
+        playPauseBtn.addEventListener('click', togglePlayback);
+        
+        audio.addEventListener('play', updateInterface);
+        audio.addEventListener('pause', updateInterface);
+        audio.addEventListener('ended', () => {
+            audio.currentTime = 0;
+            updateInterface();
+        });
+
+        // Inicialización
+        document.addEventListener('DOMContentLoaded', () => {
+            const splashScreen = document.querySelector('.splash-screen');
+            setTimeout(() => {
+                splashScreen.remove();
+            }, 6000);
+
+            initializeMediaSession();
+            
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.getRegistration().then(registration => {
+                    if (registration) {
+                        registration.update();
+                    }
+                });
+            }
+        });
+
+        // Registrar Service Worker
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js')
+                    .then(registration => {
+                        console.log('Service Worker registrado:', registration.scope);
+                        registration.addEventListener('updatefound', () => {
+                            console.log('Nueva versión encontrada...');
+                        });
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });
+            });
+        }
+    </script>
 </body>
 </html>
