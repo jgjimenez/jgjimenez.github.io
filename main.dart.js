@@ -65470,7 +65470,7 @@ s=s.e
 if(s!=null)s.pause()}},
 $S:0}
 A.DF.prototype={
-L(a){var s,r,q=null,p=A.bE(a,q,t.w).w.a.a/600
+L(a){var s,r,q=null,p=A.bE(a,q,t.w).w.a.a/400
 p=p<1?p:1
 s=A.a0(a).p1.w
 s=s==null?q:s.Jm(20*p,B.ai)
@@ -65494,7 +65494,7 @@ break
 case 4:b.a7(t.Pu).f.vr(A.adZ(null,null,null,null,null,B.W,null,A.du("No se pudo abrir el enlace: "+a,null,null),null,B.h6,null,null,null,null,null,null,null,null,null))
 case 3:return A.S(null,r)}})
 return A.T($async$eK,r)},
-L(a){var s,r,q,p,o,n=this,m=null,l=A.bE(a,m,t.w).w.a.a/600
+L(a){var s,r,q,p,o,n=this,m=null,l=A.bE(a,m,t.w).w.a.a/400
 l=l<1?l:1
 s=20*l
 s=A.acu(B.z,A.du("",A.cM(m,m,B.j,m,m,m,m,m,m,m,m,s,m,m,m,m,m,!0,m,m,m,m,m,m,m,m),m),A.cM(m,m,B.j,m,m,m,m,m,m,m,m,s,m,m,m,m,m,!0,m,m,m,m,m,m,m,m))
@@ -65576,7 +65576,7 @@ w2(a,b,c,d){var s,r=null,q=A.jJ(12),p=A.a0(c).a1l(B.A),o=A.a0(c),n=A.a0(c),m=A.a
 m=m==null?r:m.Jo(B.j,18*d,B.ai)
 s=A.a2(b).h("ai<1,bJ>")
 return A.acD(new A.nb(p,new A.tI(A.du(a,m==null?A.cM(r,r,B.j,r,r,r,r,r,r,r,r,18*d,r,r,B.ai,r,r,!0,r,r,r,r,r,r,r,r):m,r),A.a4(new A.ai(b,new A.a_C(d,c),s),!0,s.h("aJ.E")),n.ax.y,o.ax.b,r),r),r,4,B.Ak,new A.cf(q,B.p))},
-L(a){var s=null,r=A.bE(a,s,t.w).w.a.a/600
+L(a){var s=null,r=A.bE(a,s,t.w).w.a.a/400
 r=r<1?r:1
 return A.FK(A.acu(s,A.du("",A.cM(s,s,B.j,s,s,s,s,s,s,s,s,20*r,s,s,s,s,s,!0,s,s,s,s,s,s,s,s),s),s),B.l,A.adW(A.hA(A.c([this.w2("Lunes a Viernes",B.CM,a,r),this.w2("S\xe1bado",B.Cy,a,r),this.w2("Domingo",B.CJ,a,r)],t.D),B.bQ,B.ab,B.at),B.Af),s)}}
 A.a_C.prototype={
