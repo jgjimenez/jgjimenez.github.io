@@ -65543,7 +65543,7 @@ r=A.acR(a).z
 if(r==null)r=A.a0(a).af.z
 if(r==null)r=B.y
 q.uA(A.apw(null,r,!0,null,new A.Se(b,d,c),a,null,s,B.w_,!0,t.z))},
-L(a){var s,r,q=this,p=null,o=A.bE(a,p,t.w).w.a.a/600
+L(a){var s,r,q=this,p=null,o=A.bE(a,p,t.w).w.a.a/400
 o=o<1?o:1
 s=A.acu(p,A.du("",A.cM(p,p,B.j,p,p,p,p,p,p,p,p,20*o,p,p,p,p,p,!0,p,p,p,p,p,p,p,p),p),p)
 r=A.a0(a).p1.z
