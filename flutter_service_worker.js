@@ -9,7 +9,7 @@ const RESOURCES = {"assets/AssetManifest.bin": "7c925db8737ccb21db8e92c495a0de2d
 "assets/assets/images/ATHM.png": "343459ee690d42489b3f219f1d1554db",
 "assets/assets/images/FirstBank.png": "fac8800f476aee67d92c90ce39c59685",
 "assets/assets/images/fondo.jpg": "12743b1171af46db022947ca69a26939",
-"assets/assets/images/logo.png": "adabcb7a73dce5b3d32d36ffecd42ee6",
+"assets/assets/images/logo.png": "db09c64a91abe1ae88c157134548c2f4",
 "assets/assets/images/PP_logo.png": "01621718c73c4ed67a5dbb10585053f8",
 "assets/assets/Radio_Vida_Eterna_logo.png": "96d9c2bbe10d57dc1c3960981da9b7ed",
 "assets/FontManifest.json": "dc3d03800ccca4601324923c0b1d6d57",
@@ -32,7 +32,7 @@ const RESOURCES = {"assets/AssetManifest.bin": "7c925db8737ccb21db8e92c495a0de2d
 "favicon.png": "2caac7434835554607954c331f068773",
 "favicon_back.png": "5dcef449791fa27946b3d35ad8803796",
 "flutter.js": "76f08d47ff9f5715220992f993002504",
-"flutter_bootstrap.js": "26da5b1a33bf178eeedc59fa95b6f6a3",
+"flutter_bootstrap.js": "973152f81c5d3a65a0425576a0b40409",
 "icons/Icon-192.png": "ac9a721a12bbc803b44f645561ecb1e1",
 "icons/Icon-512.png": "96e752610906ba2a93c65f8abe1645f1",
 "icons/Icon-maskable-192.png": "c457ef57daa1d16f64b27b786ec2ea3c",
@@ -42,7 +42,7 @@ const RESOURCES = {"assets/AssetManifest.bin": "7c925db8737ccb21db8e92c495a0de2d
 "icons/Radio_Vida_Eterna_logo_512.png": "902d88b3351fb69afa6fcfbf622fc9ff",
 "index.html": "fa92d555882ba30a973ae7e41ce28837",
 "/": "fa92d555882ba30a973ae7e41ce28837",
-"main.dart.js": "299fdeadfe32c98ff7d18a407a1fabf7",
+"main.dart.js": "5dc1cb1a8c9e986d005545a37abfcbf5",
 "manifest.json": "22ffee04c1b4394e1e457f42cda99c1c",
 "version.json": "fb8b47278b7a155da194d46599b1388a"};
 // The application shell files that are downloaded before a service worker can
