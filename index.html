@@ -16,6 +16,7 @@
             color: white;
             margin: 0;
             padding: 0;
+            overflow-x: hidden;
         }
         .project-card {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -33,67 +34,194 @@
         header {
             border-bottom: 1px solid transparent;
             padding: 20px 0;
+            position: relative;
         }
         nav a {
             transition: color 0.3s ease;
         }
+        
+        /* Menú hamburguesa para móviles */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 25px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 10;
+        }
+        
+        .menu-toggle span {
+            width: 30px;
+            height: 3px;
+            background: white;
+            border-radius: 5px;
+            transition: all 0.3s linear;
+            position: relative;
+            transform-origin: 1px;
+        }
+        
+        /* Estilos para el menú móvil */
+        .mobile-nav {
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background-color: #1e2d3b;
+            padding: 20px;
+            z-index: 100;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .mobile-nav.active {
+            display: flex;
+        }
+        
+        .mobile-nav a {
+            padding: 12px 0;
+            border-bottom: 1px solid #2a3b4c;
+            text-align: center;
+        }
+        
+        .mobile-nav a:last-child {
+            border-bottom: none;
+        }
+        
+        /* Ajustes responsivos */
+        @media (max-width: 1024px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            #main-title {
+                font-size: 2.8rem;
+            }
+        }
+        
         @media (max-width: 768px) {
             header {
-                flex-direction: column;
+                flex-direction: row;
                 padding: 15px 0;
             }
-            nav {
-                margin-top: 15px;
-                flex-wrap: wrap;
-                justify-content: center;
+            
+            .desktop-nav {
+                display: none;
             }
-            nav a {
-                margin: 5px 10px;
+            
+            .menu-toggle {
+                display: flex;
             }
+            
             #main-title {
-                font-size: 2.5rem;
+                font-size: 2.3rem;
+                line-height: 1.2;
             }
+            
+            .project-card {
+                margin-bottom: 20px;
+            }
+            
             /* Ajustar posición del widget en móviles */
             .floating-chat-container {
                 right: 10px !important;
-                bottom: 80px !important; /* Para que no interfiera con el botón de idioma */
+                bottom: 80px !important;
+            }
+            
+            .kfdsf-floatingchat-container {
+                bottom: 80px !important;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            #main-title {
+                font-size: 1.8rem;
+            }
+            
+            .text-lg {
+                font-size: 1rem;
+            }
+            
+            .project-card {
+                padding: 15px;
+            }
+            
+            .flex-wrap.gap-2 {
+                justify-content: center;
+            }
+            
+            footer {
+                padding: 20px 0;
+            }
+        }
+        
+        /* Ajustes para el botón de idioma en móviles */
+        @media (max-width: 400px) {
+            .fixed.bottom-8.right-8 {
+                bottom: 20px;
+                right: 20px;
+            }
+            
+            #language-btn {
+                width: 50px;
+                height: 50px;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <header class="flex flex-col md:flex-row items-center justify-between">
-            <div class="flex items-center gap-4 text-white mb-4 md:mb-0">
+        <header class="flex items-center justify-between">
+            <div class="flex items-center gap-4 text-white">
                 <svg class="size-8" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
                     <path d="M44 4H30.6666V17.3334H17.3334V30.6666H4V44H44V4Z" fill="currentColor"></path>
                 </svg>
                 <h2 class="text-white text-xl font-bold leading-tight tracking-[-0.015em]">JGJS Dev.</h2>
             </div>
-            <nav class="flex items-center gap-4 md:gap-6">
+            
+            <!-- Menú para desktop -->
+            <nav class="desktop-nav flex items-center gap-4 md:gap-6">
                 <a class="text-[#92adc9] hover:text-white text-base font-medium" id="nav-inicio" href="#">Inicio</a>
                 <a class="text-[#92adc9] hover:text-white text-base font-medium" id="nav-proyectos" href="#">Proyectos</a>
                 <a class="text-[#92adc9] hover:text-white text-base font-medium" id="nav-sobre-mi" href="#">Sobre mí</a>
                 <a class="text-[#92adc9] hover:text-white text-base font-medium" id="nav-contacto" href="#">Contacto</a>
             </nav>
+            
+            <!-- Botón de menú hamburguesa para móviles -->
+            <button class="menu-toggle" id="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </header>
+        
+        <!-- Menú para móviles -->
+        <nav class="mobile-nav" id="mobile-nav">
+            <a class="text-[#92adc9] hover:text-white text-base font-medium" id="nav-inicio-mobile" href="#">Inicio</a>
+            <a class="text-[#92adc9] hover:text-white text-base font-medium" id="nav-proyectos-mobile" href="#">Proyectos</a>
+            <a class="text-[#92adc9] hover:text-white text-base font-medium" id="nav-sobre-mi-mobile" href="#">Sobre mí</a>
+            <a class="text-[#92adc9] hover:text-white text-base font-medium" id="nav-contacto-mobile" href="#">Contacto</a>
+        </nav>
 
         <main class="flex-1">
-            <section class="text-center py-12 md:py-20 px-4">
+            <section class="text-center py-8 md:py-20 px-4">
                 <h1 class="text-white text-4xl md:text-6xl font-bold tracking-tighter mb-4" id="main-title">Innovación y Desarrollo a tu Alcance</h1>
                 <p class="text-[#92adc9] text-lg md:text-xl max-w-3xl mx-auto" id="main-subtitle">
                     Explora mis proyectos más recientes y descubre cómo la tecnología puede transformar ideas en realidad.
                 </p>
             </section>
             
-            <section class="py-12 px-4">
+            <section class="py-8 md:py-12 px-4">
                 <h2 class="text-white text-3xl md:text-4xl font-bold text-center mb-8 md:mb-12" id="projects-title">Proyectos Destacados de GitHub</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto">
                     <div class="project-card bg-[#1e2d3b] rounded-lg overflow-hidden flex flex-col">
                         <div class="p-6 flex-grow">
                             <div class="flex items-start justify-between mb-4">
                                 <h3 class="text-white text-xl md:text-2xl font-bold" id="nethserver-project-title">Proyecto Comunidad Nethserver</h3>
-                                <!-- ENLACE MODIFICADO: Agregado target="_blank" para abrir en nueva ventana -->
                                 <a class="text-white hover:text-[#1173d4] transition-colors" href="https://github.com/jgjimenez/nethbridge_mobile_ns8" target="_blank" rel="noopener noreferrer">
                                     <svg class="feather feather-github" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 极 0 0-.94-2.61c3.14-.35 6.44-1.54 极.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
@@ -115,15 +243,15 @@
                                 <h3 class="text-white text-xl md:text-2xl font-bold leading-tight" id="local-projects-title">Proyectos Locales<br/>(Punto Fijo - Venezuela)</h3>
                                 <a class="text-white hover:text-[#1173d4] transition-colors" href="#">
                                     <svg class="feather feather-github" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M9 19极-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 极 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                                        <path d="M9 19极-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 极 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 极C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
                                     </svg>
                                 </a>
                             </div>
                             <p class="text-[#92adc9] mb-4 text-sm md:text-base" id="local-projects-desc">Descripción de los proyectos locales, enfocados en la solución de problemas específicos con una arquitectura innovadora.</p>
                             <div class="flex flex-wrap gap-2">
                                 <span class="bg-[#2a4d6d] text-white text-xs font-semibold px-2 py-0.5 rounded-full">Flutter</span>
-                                <span class="bg-[#2a4d6d] text-white text-xs font-semibold px-2 py-0.5 rounded-full">Android</span>
-                                <span class="bg-[#2a4d6d] text-white极xs font-semibold px-2 py-0.5 rounded-full">SQLite</span>
+                                <span class="bg-[#2a4d6d] text-white text-xs font-semib极 px-2 py-0.5 rounded-full">Android</span>
+                                <span class="bg-[#2a4d6d] text-white text-xs font-semibold px-2 py-0.5 rounded-full">SQLite</span>
                             </div>
                         </div>
                     </div>
@@ -131,7 +259,7 @@
             </section>
         </main>
 
-        <footer class="flex justify-center px-5 py-8 mt-12 md:mt-16 border-t border-[#1e2d3b]">
+        <footer class="flex justify-center px-5 py-8 mt-8 md:mt-16 border-t border-[#1e2d3b]">
             <div class="flex max-w-[960px] flex-1 flex-col items-center gap-4 text-center">
                 <p class="text-[#92adc9] text-sm" id="copyright-text">© 2024 JGJS Dev. Todos los derechos reservados.</p>
             </div>
@@ -172,7 +300,7 @@
             },
             en: {
                 navInicio: "Home",
-                nav极royectos: "Projects",
+                navProyectos: "Projects",
                 navSobreMi: "About me",
                 navContacto: "Contact",
                 mainTitle: "Innovation and Development within Your Reach",
@@ -187,6 +315,8 @@
         };
 
         const languageBtn = document.getElementById('language-btn');
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileNav = document.getElementById('mobile-nav');
         let currentLang = 'es';
 
         function updateContent() {
@@ -195,6 +325,10 @@
             document.getElementById('nav-proyectos').textContent = langData.navProyectos;
             document.getElementById('nav-sobre-mi').textContent = langData.navSobreMi;
             document.getElementById('nav-contacto').textContent = langData.navContacto;
+            document.getElementById('nav-inicio-mobile').textContent = langData.navInicio;
+            document.getElementById('nav-proyectos-mobile').textContent = langData.navProyectos;
+            document.getElementById('nav-sobre-mi-mobile').textContent = langData.navSobreMi;
+            document.getElementById('nav-contacto-mobile').textContent = langData.navContacto;
             document.getElementById('main-title').textContent = langData.mainTitle;
             document.getElementById('main-subtitle').textContent = langData.mainSubtitle;
             document.getElementById('projects-title').textContent = langData.projectsTitle;
@@ -208,6 +342,21 @@
         languageBtn.addEventListener('click', () => {
             currentLang = currentLang === 'es' ? 'en' : 'es';
             updateContent();
+        });
+
+        // Toggle menu móvil
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileNav.classList.toggle('active');
+            mobileMenuBtn.classList.toggle('active');
+        });
+
+        // Cerrar menú al hacer clic en un enlace
+        const mobileLinks = document.querySelectorAll('#mobile-nav a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileNav.classList.remove('active');
+                mobileMenuBtn.classList.remove('active');
+            });
         });
 
         updateContent(); // Carga el contenido inicial al cargar la página
