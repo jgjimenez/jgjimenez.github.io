@@ -1,163 +1,200 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-<meta charset="utf-8"/>
-<meta charset="utf-8"/>
-<meta charset="utf-8"/>
-<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
-<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Space+Grotesk%3Awght%40400%3B500%3B700" onload="this.rel='stylesheet'" rel="stylesheet"/>
-<title>JGJS Dev.</title>
-<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
-<style type="text/tailwindcss">
-    .project-card {
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .project-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-    }
-</style>
-</head>
-<body class="bg-[#111a22]">
-<div class="relative flex h-auto min-h-screen w-full flex-col bg-[#111a22] dark group/design-root overflow-x-hidden" style='font-family: "Space Grotesk", "Noto Sans", sans-serif;'>
-<div class="layout-container flex h-full grow flex-col">
-<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-transparent px-10 py-5">
-<div class="flex items-center gap-4 text-white">
-<svg class="size-8" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-<path d="M44 4H30.6666V17.3334H17.3334V30.6666H4V44H44V4Z" fill="currentColor"></path>
-</svg>
-<h2 class="text-white text-xl font-bold leading-tight tracking-[-0.015em]">JGJS Dev.</h2>
-</div>
-<nav class="flex items-center gap-6">
-<a class="text-[#92adc9] hover:text-white transition-colors text-base font-medium" id="nav-inicio" href="#">Inicio</a>
-<a class="text-[#92adc9] hover:text-white transition-colors text-base font-medium" id="nav-proyectos" href="#">Proyectos</a>
-<a class="text-[#92adc9] hover:text-white transition-colors text-base font-medium" id="nav-sobre-mi" href="#">Sobre mí</a>
-<a class="text-[#92adc9] hover:text-white transition-colors text-base font-medium" id="nav-contacto" href="#">Contacto</a>
-</nav>
-</header>
-<main class="flex-1">
-<section class="text-center py-20 px-4">
-<h1 class="text-white text-6xl font-bold tracking-tighter mb-4" id="main-title">Innovación y Desarrollo a tu Alcance</h1>
-<p class="text-[#92adc9] text-xl max-w-3xl mx-auto" id="main-subtitle">
-            Explora mis proyectos más recientes y descubre cómo la tecnología puede transformar ideas en realidad.
-          </p>
-</section>
-<section class="py-12 px-4">
-<h2 class="text-white text-4xl font-bold text-center mb-12" id="projects-title">Proyectos Destacados de GitHub</h2>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-<div class="project-card bg-[#1e2d3b] rounded-lg overflow-hidden flex flex-col">
-<div class="p-6 flex-grow">
-<div class="flex items-start justify-between mb-4">
-<h3 class="text-white text-2xl font-bold" id="nethserver-project-title">Proyecto Comunidad Nethserver</h3>
-<a class="text-white hover:text-[#1173d4] transition-colors" href="#">
-<svg class="feather feather-github" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-<path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-</svg>
-</a>
-</div>
-<p class="text-[#92adc9] mb-4 text-sm" id="nethserver-desc">Una breve descripción del Proyecto Comunidad Nethserver, destacando sus características y tecnologías principales.</p>
-<div class="flex flex-wrap gap-2">
-<span class="bg-[#2a4d6d] text-white text-xs font-semibold px-2 py-0.5 rounded-full">React</span>
-<span class="bg-[#2a4d6d] text-white text-xs font-semibold px-2 py-0.5 rounded-full">Node.js</span>
-<span class="bg-[#2a4d6d] text-white text-xs font-semibold px-2 py-0.5 rounded-full">MongoDB</span>
-</div>
-</div>
-</div>
-<div class="project-card bg-[#1e2d3b] rounded-lg overflow-hidden flex flex-col">
-<div class="p-6 flex-grow">
-<div class="flex items-start justify-between mb-4">
-<h3 class="text-white text-2xl font-bold leading-tight" id="local-projects-title">Proyectos Locales<br/>(Punto Fijo - Venezuela)</h3>
-<a class="text-white hover:text-[#1173d4] transition-colors" href="#">
-<svg class="feather feather-github" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-<path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-</svg>
-</a>
-</div>
-<p class="text-[#92adc9] mb-4 text-sm" id="local-projects-desc">Descripción de los proyectos locales, enfocados en la solución de problemas específicos con una arquitectura innovadora.</p>
-<div class="flex flex-wrap gap-2">
-<span class="bg-[#2a4d6d] text-white text-xs font-semibold px-2 py-0.5 rounded-full">Vue.js</span>
-<span class="bg-[#2a4d6d] text-white text-xs font-semibold px-2 py-0.5 rounded-full">Firebase</span>
-<span class="bg-[#2a4d6d] text-white text-xs font-semibold px-2 py-0.5 rounded-full">GraphQL</span>
-</div>
-</div>
-</div>
-</div>
-</section>
-</main>
-<footer class="flex justify-center px-5 py-8 mt-16 border-t border-[#1e2d3b]">
-<div class="flex max-w-[960px] flex-1 flex-col items-center gap-4 text-center">
-<p class="text-[#92adc9] text-sm" id="copyright-text">© 2024 JGJS Dev. Todos los derechos reservados.</p>
-</div>
-</footer>
-</div>
-</div>
-
-<div class="fixed bottom-8 right-8 z-50">
-    <button id="language-btn" class="bg-[#2a4d6d] text-white p-3 rounded-full shadow-lg hover:bg-[#3a5d7d] transition-colors duration-300 ease-in-out transform hover:scale-110">
-        <span class="material-symbols-outlined text-2xl">language</span>
-    </button>
-</div>
-
-<script>
-    const translations = {
-        es: {
-            navInicio: "Inicio",
-            navProyectos: "Proyectos",
-            navSobreMi: "Sobre mí",
-            navContacto: "Contacto",
-            mainTitle: "Innovación y Desarrollo a tu Alcance",
-            mainSubtitle: "Explora mis proyectos más recientes y descubre cómo la tecnología puede transformar ideas en realidad.",
-            projectsTitle: "Proyectos Destacados de GitHub",
-            nethserverProjectTitle: "Proyecto Comunidad Nethserver",
-            nethserverDesc: "Una breve descripción del Proyecto Comunidad Nethserver, destacando sus características y tecnologías principales.",
-            localProjectsTitle: "Proyectos Locales<br/>(Punto Fijo - Venezuela)",
-            localProjectsDesc: "Descripción de los proyectos locales, enfocados en la solución de problemas específicos con una arquitectura innovadora.",
-            copyrightText: "© 2024 JGJS Dev. Todos los derechos reservados."
-        },
-        en: {
-            navInicio: "Home",
-            navProyectos: "Projects",
-            navSobreMi: "About me",
-            navContacto: "Contact",
-            mainTitle: "Innovation and Development within Your Reach",
-            mainSubtitle: "Explore my most recent projects and discover how technology can turn ideas into reality.",
-            projectsTitle: "Featured GitHub Projects",
-            nethserverProjectTitle: "Nethserver Community Project",
-            nethserverDesc: "A brief description of the Nethserver Community Project, highlighting its main features and technologies.",
-            localProjectsTitle: "Local Projects<br/>(Punto Fijo - Venezuela)",
-            localProjectsDesc: "Description of local projects, focused on solving specific problems with an innovative architecture.",
-            copyrightText: "© 2024 JGJS Dev. All rights reserved."
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700;900&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+    <title>JGJS Dev.</title>
+    <link rel="icon" href="data:image/x-icon;base64," type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+    <style>
+        body {
+            font-family: "Space Grotesk", "Noto Sans", sans-serif;
+            background-color: #111a22;
+            color: white;
+            margin: 0;
+            padding: 0;
         }
-    };
+        .project-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        header {
+            border-bottom: 1px solid transparent;
+            padding: 20px 0;
+        }
+        nav a {
+            transition: color 0.3s ease;
+        }
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                padding: 15px 0;
+            }
+            nav {
+                margin-top: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            nav a {
+                margin: 5px 10px;
+            }
+            #main-title {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="flex flex-col md:flex-row items-center justify-between">
+            <div class="flex items-center gap-4 text-white mb-4 md:mb-0">
+                <svg class="size-8" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M44 4H30.6666V17.3334H17.3334V30.6666H4V44H44V4Z" fill="currentColor"></path>
+                </svg>
+                <h2 class="text-white text-xl font-bold leading-tight tracking-[-0.015em]">JGJS Dev.</h2>
+            </div>
+            <nav class="flex items-center gap-4 md:gap-6">
+                <a class="text-[#92adc9] hover:text-white text-base font-medium" id="nav-inicio" href="#">Inicio</a>
+                <a class="text-[#92adc9] hover:text-white text-base font-medium" id="nav-proyectos" href="#">Proyectos</a>
+                <a class="text-[#92adc9] hover:text-white text-base font-medium" id="nav-sobre-mi" href="#">Sobre mí</a>
+                <a class="text-[#92adc9] hover:text-white text-base font-medium" id="nav-contacto" href="#">Contacto</a>
+            </nav>
+        </header>
 
-    const languageBtn = document.getElementById('language-btn');
-    let currentLang = 'es';
+        <main class="flex-1">
+            <section class="text-center py-12 md:py-20 px-4">
+                <h1 class="text-white text-4xl md:text-6xl font-bold tracking-tighter mb-4" id="main-title">Innovación y Desarrollo a tu Alcance</h1>
+                <p class="text-[#92adc9] text-lg md:text-xl max-w-3xl mx-auto" id="main-subtitle">
+                    Explora mis proyectos más recientes y descubre cómo la tecnología puede transformar ideas en realidad.
+                </p>
+            </section>
+            
+            <section class="py-12 px-4">
+                <h2 class="text-white text-3xl md:text-4xl font-bold text-center mb-8 md:mb-12" id="projects-title">Proyectos Destacados de GitHub</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto">
+                    <div class="project-card bg-[#1e2d3b] rounded-lg overflow-hidden flex flex-col">
+                        <div class="p-6 flex-grow">
+                            <div class="flex items-start justify-between mb-4">
+                                <h3 class="text-white text-xl md:text-2xl font-bold" id="nethserver-project-title">Proyecto Comunidad Nethserver</h3>
+                                <a class="text-white hover:text-[#1173d4] transition-colors" href="#">
+                                    <svg class="feather feather-github" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                            <p class="text-[#92adc9] mb-4 text-sm md:text-base" id="nethserver-desc">Una breve descripción del Proyecto Comunidad Nethserver, destacando sus características y tecnologías principales.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-[#2a4d6d] text-white text-xs font-semibold px-2 py-0.5 rounded-full">React</span>
+                                <span class="bg-[#2a4d6d] text-white text-xs font-semibold px-2 py-0.5 rounded-full">Node.js</span>
+                                <span class="bg-[#2a4d6d] text-white text-xs font-semibold px-2 py-0.5 rounded-full">MongoDB</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card bg-[#1e2d3b] rounded-lg overflow-hidden flex flex-col">
+                        <div class="p-6 flex-grow">
+                            <div class="flex items-start justify-between mb-4">
+                                <h3 class="text-white text-xl md:text-2xl font-bold leading-tight" id="local-projects-title">Proyectos Locales<br/>(Punto Fijo - Venezuela)</h3>
+                                <a class="text-white hover:text-[#1173d4] transition-colors" href="#">
+                                    <svg class="feather feather-github" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                            <p class="text-[#92adc9] mb-4 text-sm md:text-base" id="local-projects-desc">Descripción de los proyectos locales, enfocados en la solución de problemas específicos con una arquitectura innovadora.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-[#2a4d6d] text-white text-xs font-semibold px-2 py-0.5 rounded-full">Vue.js</span>
+                                <span class="bg-[#2a4d6d] text-white text-xs font-semibold px-2 py-0.5 rounded-full">Firebase</span>
+                                <span class="bg-[#2a4d6d] text-white text-xs font-semibold px-2 py-0.5 rounded-full">GraphQL</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
 
-    function updateContent() {
-        const langData = translations[currentLang];
-        document.getElementById('nav-inicio').textContent = langData.navInicio;
-        document.getElementById('nav-proyectos').textContent = langData.navProyectos;
-        document.getElementById('nav-sobre-mi').textContent = langData.navSobreMi;
-        document.getElementById('nav-contacto').textContent = langData.navContacto;
-        document.getElementById('main-title').textContent = langData.mainTitle;
-        document.getElementById('main-subtitle').textContent = langData.mainSubtitle;
-        document.getElementById('projects-title').textContent = langData.projectsTitle;
-        document.getElementById('nethserver-project-title').textContent = langData.nethserverProjectTitle;
-        document.getElementById('nethserver-desc').textContent = langData.nethserverDesc;
-        document.getElementById('local-projects-title').innerHTML = langData.localProjectsTitle;
-        document.getElementById('local-projects-desc').textContent = langData.localProjectsDesc;
-        document.getElementById('copyright-text').textContent = langData.copyrightText;
-    }
+        <footer class="flex justify-center px-5 py-8 mt-12 md:mt-16 border-t border-[#1e2d3b]">
+            <div class="flex max-w-[960px] flex-1 flex-col items-center gap-4 text-center">
+                <p class="text-[#92adc9] text-sm" id="copyright-text">© 2024 JGJS Dev. Todos los derechos reservados.</p>
+            </div>
+        </footer>
+    </div>
 
-    languageBtn.addEventListener('click', () => {
-        currentLang = currentLang === 'es' ? 'en' : 'es';
-        updateContent();
-    });
+    <div class="fixed bottom-8 right-8 z-50">
+        <button id="language-btn" class="bg-[#2a4d6d] text-white p-3 rounded-full shadow-lg hover:bg-[#3a5d7d] transition-colors duration-300 ease-in-out transform hover:scale-110">
+            <span class="material-symbols-outlined text-2xl">language</span>
+        </button>
+    </div>
 
-    updateContent(); // Carga el contenido inicial al cargar la página
-</script>
+    <script>
+        const translations = {
+            es: {
+                navInicio: "Inicio",
+                navProyectos: "Proyectos",
+                navSobreMi: "Sobre mí",
+                navContacto: "Contacto",
+                mainTitle: "Innovación y Desarrollo a tu Alcance",
+                mainSubtitle: "Explora mis proyectos más recientes y descubre cómo la tecnología puede transformar ideas en realidad.",
+                projectsTitle: "Proyectos Destacados de GitHub",
+                nethserverProjectTitle: "Proyecto Comunidad Nethserver",
+                nethserverDesc: "Una breve descripción del Proyecto Comunidad Nethserver, destacando sus características y tecnologías principales.",
+                localProjectsTitle: "Proyectos Locales<br/>(Punto Fijo - Venezuela)",
+                localProjectsDesc: "Descripción de los proyectos locales, enfocados en la solución de problemas específicos con una arquitectura innovadora.",
+                copyrightText: "© 2024 JGJS Dev. Todos los derechos reservados."
+            },
+            en: {
+                navInicio: "Home",
+                navProyectos: "Projects",
+                navSobreMi: "About me",
+                navContacto: "Contact",
+                mainTitle: "Innovation and Development within Your Reach",
+                mainSubtitle: "Explore my most recent projects and discover how technology can turn ideas into reality.",
+                projectsTitle: "Featured GitHub Projects",
+                nethserverProjectTitle: "Nethserver Community Project",
+                nethserverDesc: "A brief description of the Nethserver Community Project, highlighting its main features and technologies.",
+                localProjectsTitle: "Local Projects<br/>(Punto Fijo - Venezuela)",
+                localProjectsDesc: "Description of local projects, focused on solving specific problems with an innovative architecture.",
+                copyrightText: "© 2024 JGJS Dev. All rights reserved."
+            }
+        };
 
+        const languageBtn = document.getElementById('language-btn');
+        let currentLang = 'es';
+
+        function updateContent() {
+            const langData = translations[currentLang];
+            document.getElementById('nav-inicio').textContent = langData.navInicio;
+            document.getElementById('nav-proyectos').textContent = langData.navProyectos;
+            document.getElementById('nav-sobre-mi').textContent = langData.navSobreMi;
+            document.getElementById('nav-contacto').textContent = langData.navContacto;
+            document.getElementById('main-title').textContent = langData.mainTitle;
+            document.getElementById('main-subtitle').textContent = langData.mainSubtitle;
+            document.getElementById('projects-title').textContent = langData.projectsTitle;
+            document.getElementById('nethserver-project-title').textContent = langData.nethserverProjectTitle;
+            document.getElementById('nethserver-desc').textContent = langData.nethserverDesc;
+            document.getElementById('local-projects-title').innerHTML = langData.localProjectsTitle;
+            document.getElementById('local-projects-desc').textContent = langData.localProjectsDesc;
+            document.getElementById('copyright-text').textContent = langData.copyrightText;
+        }
+
+        languageBtn.addEventListener('click', () => {
+            currentLang = currentLang === 'es' ? 'en' : 'es';
+            updateContent();
+        });
+
+        updateContent(); // Carga el contenido inicial al cargar la página
+    </script>
 </body>
 </html>
