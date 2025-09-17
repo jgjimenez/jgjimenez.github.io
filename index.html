@@ -36,105 +36,57 @@
             padding: 20px 0;
             position: relative;
         }
-        nav a {
-            transition: color 0.3s ease;
-        }
         
-        /* Menú hamburguesa para móviles */
-        .menu-toggle {
-            display: none;
-            flex-direction: column;
-            justify-content: space-around;
-            width: 30px;
-            height: 25px;
-            background: transparent;
-            border: none;
-            cursor: pointer;
-            padding: 0;
-            z-index: 10;
-        }
-        
-        .menu-toggle span {
-            width: 30px;
-            height: 3px;
-            background: white;
-            border-radius: 5px;
-            transition: all 0.3s linear;
-            position: relative;
-            transform-origin: 1px;
-        }
-        
-        /* Animación para el botón hamburguesa */
-        .menu-toggle.active span:nth-child(1) {
-            transform: rotate(45deg);
-        }
-        
-        .menu-toggle.active span:nth-child(2) {
-            opacity: 0;
-        }
-        
-        .menu-toggle.active span:nth-child(3) {
-            transform: rotate(-45deg);
-        }
-        
-        /* Estilos para el menú móvil */
-        .mobile-nav {
-            display: none;
-            flex-direction: column;
+        /* Contenedor para botones flotantes */
+        .floating-buttons {
             position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(17, 26, 34, 0.98);
-            padding: 80px 20px 20px;
-            z-index: 99;
-            overflow-y: auto;
-        }
-        
-        .mobile-nav.active {
-            display: flex;
-        }
-        
-        .mobile-nav a {
-            padding: 18px 0;
-            border-bottom: 1px solid #2a3b4c;
-            text-align: center;
-            font-size: 1.2rem;
-            color: #92adc9;
-            text-decoration: none;
-        }
-        
-        .mobile-nav a:hover {
-            color: white;
-        }
-        
-        .mobile-nav a:last-child {
-            border-bottom: none;
-        }
-        
-        /* Botón para cerrar el menú móvil */
-        .close-menu {
-            position: absolute;
-            top: 20px;
+            bottom: 20px;
             right: 20px;
-            background: none;
-            border: none;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 15px;
+            z-index: 50;
+        }
+        
+        /* Widget de Ko-fi personalizado */
+        .custom-kofi-widget {
+            background-color: #2a4d6d;
             color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-            z-index: 100;
+            padding: 12px 16px;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
         }
         
-        /* Ajustes para el widget de Ko-fi en móviles */
-        .kfdsf-floatingchat-container {
-            bottom: 90px !important;
-            z-index: 48 !important;
+        .custom-kofi-widget:hover {
+            background-color: #3a5d7d;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
         }
         
-        /* Asegurar que el contenido principal tenga suficiente espacio en la parte inferior */
-        main {
-            padding-bottom: 40px;
+        /* Botón de idioma */
+        #language-btn {
+            background-color: #2a4d6d;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        #language-btn:hover {
+            background-color: #3a5d7d;
+            transform: scale(1.1);
         }
         
         /* Ajustes responsivos */
@@ -154,14 +106,6 @@
                 padding: 15px 0;
             }
             
-            .desktop-nav {
-                display: none;
-            }
-            
-            .menu-toggle {
-                display: flex;
-            }
-            
             #main-title {
                 font-size: 2.3rem;
                 line-height: 1.2;
@@ -171,20 +115,19 @@
                 margin-bottom: 20px;
             }
             
-            /* Ajustar posición del widget en móviles */
-            .floating-chat-container {
-                right: 10px !important;
-                bottom: 90px !important;
+            .floating-buttons {
+                bottom: 15px;
+                right: 15px;
             }
             
-            .kfdsf-floatingchat-container {
-                bottom: 90px !important;
+            #language-btn {
+                width: 55px;
+                height: 55px;
             }
             
-            /* Asegurar que el footer sea visible */
-            footer {
-                position: relative;
-                z-index: 10;
+            .custom-kofi-widget {
+                padding: 10px 14px;
+                font-size: 0.9rem;
             }
         }
         
@@ -209,24 +152,23 @@
                 padding: 20px 0;
             }
             
-            /* Ajustar botón de idioma para móviles */
-            .fixed.bottom-8.right-8 {
-                bottom: 80px;
-                right: 20px;
-                z-index: 49;
-            }
-        }
-        
-        /* Ajustes para el botón de idioma en móviles */
-        @media (max-width: 400px) {
-            .fixed.bottom-8.right-8 {
-                bottom: 80px;
-                right: 15px;
+            .floating-buttons {
+                bottom: 10px;
+                right: 10px;
             }
             
             #language-btn {
                 width: 50px;
                 height: 50px;
+            }
+            
+            .custom-kofi-widget {
+                padding: 8px 12px;
+                font-size: 0.85rem;
+            }
+            
+            .custom-kofi-widget span {
+                font-size: 1.1rem;
             }
         }
     </style>
@@ -236,35 +178,13 @@
         <header class="flex items-center justify-between">
             <div class="flex items-center gap-4 text-white">
                 <svg class="size-8" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M44 极H30.6666V17.3334H17.3334V30.6666H4V44H44V4Z" fill="currentColor"></path>
+                    <path d="M44 4H30.6666V17.3334H17.3334V30.6666H4V44H44V4Z" fill="currentColor"></path>
                 </svg>
                 <h2 class="text-white text-xl font-bold leading-tight tracking-[-0.015em]">JGJS Dev.</h2>
             </div>
             
-            <!-- Menú para desktop -->
-            <nav class="desktop-nav flex items-center gap-4 md:gap-6">
-                <a class="text-[#92adc9] hover:text-white text-base font-medium" id="nav-inicio" href="#">Inicio</a>
-                <a class="text-[#92adc9] hover:text-white text-base font-medium" id="nav-proyectos" href="#">Proyectos</a>
-                <a class="text-[#92adc9] hover:text-white text-base font-medium" id="nav-sobre-mi" href="#">Sobre mí</a>
-                <a class="text-[#92adc9] hover:text-white text-base font-medium" id="nav-contacto" href="#">Contacto</a>
-            </nav>
-            
-            <!-- Botón de menú hamburguesa para móviles -->
-            <button class="menu-toggle" id="mobile-menu-btn">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+            <!-- Se ha eliminado el menú de navegación -->
         </header>
-        
-        <!-- Menú para móviles -->
-        <nav class="mobile-nav" id="mobile-nav">
-            <button class="close-menu" id="close-menu-btn">✕</button>
-            <a class="text-[#92adc9] hover:text-white text-base font-medium" id="nav-inicio-mobile" href="#">Inicio</a>
-            <a class="text-[#92adc9] hover:text-white text-base font-medium" id="nav-proyectos-mobile" href="#">Proyectos</a>
-            <a class="text-[#92adc9] hover:text-white text-base font-medium" id="nav-sobre-mi-mobile" href="#">Sobre mí</a>
-            <a class="text-[#92adc9] hover:text-white text-base font-medium" id="nav-contacto-mobile" href="#">Contacto</a>
-        </nav>
 
         <main class="flex-1">
             <section class="text-center py-8 md:py-20 px-4">
@@ -283,11 +203,11 @@
                                 <h3 class="text-white text-xl md:text-2xl font-bold" id="nethserver-project-title">Proyecto Comunidad Nethserver</h3>
                                 <a class="text-white hover:text-[#1173d4] transition-colors" href="https://github.com/jgjimenez/nethbridge_mobile_ns8" target="_blank" rel="noopener noreferrer">
                                     <svg class="feather feather-github" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 极 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
                                     </svg>
                                 </a>
                             </div>
-                            <p class="text-[#92adc9] mb-4 text-sm md:text-base" id="nethserver-desc">Su puente móvil para administrar NethServer 8 desde cualquier lugar.</p>
+                            <p class="text-[极#92adc9] mb-4 text-sm md:text-base" id="nethserver-desc">Su puente móvil para administrar NethServer 8 desde cualquier lugar.</p>
                             <div class="flex flex-wrap gap-2">
                                 <span class="bg-[#2a4d6d] text-white text-xs font-semibold px-2 py-0.5 rounded-full">Flutter</span>
                                 <span class="bg-[#2a4d6d] text-white text-xs font-semibold px-2 py-0.5 rounded-full">Android</span>
@@ -325,29 +245,23 @@
         </footer>
     </div>
 
-    <div class="fixed bottom-8 right-8 z-50">
-        <button id="language-btn" class="bg-[#2a4d6d] text-white p-3 rounded-full shadow-lg hover:bg-[#3a5d7d] transition-colors duration-300 ease-in-out transform hover:scale-110">
+    <!-- Contenedor para botones flotantes -->
+    <div class="floating-buttons">
+        <!-- Widget de Ko-fi personalizado -->
+        <a href="https://ko-fi.com/josegjimenezs" target="_blank" class="custom-kofi-widget">
+            <span class="material-symbols-outlined">favorite</span>
+            <span>Support me</span>
+        </a>
+        
+        <!-- Botón de idioma -->
+        <button id="language-btn" class="transition-colors duration-300 ease-in-out">
             <span class="material-symbols-outlined text-2xl">language</span>
         </button>
     </div>
 
-    <!-- Widget de Ko-fi (se carga y posiciona automáticamente) -->
-    <script src='https://storage.ko-fi.com/cdn/scripts/overlay-widget.js'></script>
     <script>
-        // Inicializar el widget de Ko-fi
-        kofiWidgetOverlay.draw('josegjimenezs', {
-            'type': 'floating-chat',
-            'floating-chat.donateButton.text': 'Support me',
-            'floating-chat.donateButton.background-color': '#2a4d6d',
-            'floating-chat.donateButton.text-color': '#fff'
-        });
-
         const translations = {
             es: {
-                navInicio: "Inicio",
-                navProyectos: "Proyectos",
-                navSobreMi: "Sobre mí",
-                navContacto: "Contacto",
                 mainTitle: "Innovación y Desarrollo a tu Alcance",
                 mainSubtitle: "Explora mis proyectos más recientes y descubre cómo la tecnología puede transformar ideas en realidad.",
                 projectsTitle: "Proyectos Destacados de GitHub",
@@ -355,13 +269,10 @@
                 nethserverDesc: "Su puente móvil para administrar NethServer 8 desde cualquier lugar.",
                 localProjectsTitle: "Proyectos Locales<br/>(Punto Fijo - Venezuela)",
                 localProjectsDesc: "Descripción de los proyectos locales, enfocados en la solución de problemas específicos con una arquitectura innovadora.",
-                copyrightText: "© 2024 JGJS Dev. Todos los derechos reservados."
+                copyrightText: "© 2024 JGJS Dev. Todos los derechos reservados.",
+                supportText: "Apóyame"
             },
             en: {
-                navInicio: "Home",
-                navProyectos: "Projects",
-                navSobreMi: "About me",
-                navContacto: "Contact",
                 mainTitle: "Innovation and Development within Your Reach",
                 mainSubtitle: "Explore my most recent projects and discover how technology can turn ideas into reality.",
                 projectsTitle: "Featured GitHub Projects",
@@ -369,26 +280,17 @@
                 nethserverDesc: "Your mobile bridge to manage NethServer 8 from anywhere.",
                 localProjectsTitle: "Local Projects<br/>(Punto Fijo - Venezuela)",
                 localProjectsDesc: "Description of local projects, focused on solving specific problems with an innovative architecture.",
-                copyrightText: "© 2024 JGJS Dev. All rights reserved."
+                copyrightText: "© 2024 JGJS Dev. All rights reserved.",
+                supportText: "Support me"
             }
         };
 
         const languageBtn = document.getElementById('language-btn');
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const closeMenuBtn = document.getElementById('close-menu-btn');
-        const mobileNav = document.getElementById('mobile-nav');
+        const kofiWidget = document.querySelector('.custom-kofi-widget span:last-child');
         let currentLang = 'es';
 
         function updateContent() {
             const langData = translations[currentLang];
-            document.getElementById('nav-inicio').textContent = langData.navInicio;
-            document.getElementById('nav-proyectos').textContent = langData.navProyectos;
-            document.getElementById('nav-sobre-mi').textContent = langData.navSobreMi;
-            document.getElementById('nav-contacto').textContent = langData.navContacto;
-            document.getElementById('nav-inicio-mobile').textContent = langData.navInicio;
-            document.getElementById('nav-proyectos-mobile').textContent = langData.navProyectos;
-            document.getElementById('nav-sobre-mi-mobile').textContent = langData.navSobreMi;
-            document.getElementById('nav-contacto-mobile').textContent = langData.navContacto;
             document.getElementById('main-title').textContent = langData.mainTitle;
             document.getElementById('main-subtitle').textContent = langData.mainSubtitle;
             document.getElementById('projects-title').textContent = langData.projectsTitle;
@@ -397,44 +299,12 @@
             document.getElementById('local-projects-title').innerHTML = langData.localProjectsTitle;
             document.getElementById('local-projects-desc').textContent = langData.localProjectsDesc;
             document.getElementById('copyright-text').textContent = langData.copyrightText;
+            kofiWidget.textContent = langData.supportText;
         }
 
         languageBtn.addEventListener('click', () => {
             currentLang = currentLang === 'es' ? 'en' : 'es';
             updateContent();
-        });
-
-        // Toggle menu móvil
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileNav.classList.add('active');
-            mobileMenuBtn.classList.add('active');
-            document.body.style.overflow = 'hidden'; // Prevenir scroll cuando el menú está abierto
-        });
-
-        // Cerrar menú
-        closeMenuBtn.addEventListener('click', () => {
-            mobileNav.classList.remove('active');
-            mobileMenuBtn.classList.remove('active');
-            document.body.style.overflow = ''; // Restaurar scroll
-        });
-
-        // Cerrar menú al hacer clic en un enlace
-        const mobileLinks = document.querySelectorAll('#mobile-nav a');
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileNav.classList.remove('active');
-                mobileMenuBtn.classList.remove('active');
-                document.body.style.overflow = ''; // Restaurar scroll
-            });
-        });
-
-        // Cerrar menú al hacer clic fuera del contenido
-        mobileNav.addEventListener('click', (e) => {
-            if (e.target === mobileNav) {
-                mobileNav.classList.remove('active');
-                mobileMenuBtn.classList.remove('active');
-                document.body.style.overflow = ''; // Restaurar scroll
-            }
         });
 
         updateContent(); // Carga el contenido inicial al cargar la página
