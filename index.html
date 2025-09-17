@@ -1,4 +1,7 @@
-<html><head>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
 <meta charset="utf-8"/>
 <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
 <link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Space+Grotesk%3Awght%40400%3B500%3B700" onload="this.rel='stylesheet'" rel="stylesheet"/>
@@ -6,6 +9,15 @@
 <link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<style type="text/tailwindcss">
+    .project-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+  </style>
 </head>
 <body class="bg-[#111a22]">
 <div class="relative flex h-auto min-h-screen w-full flex-col bg-[#111a22] dark group/design-root overflow-x-hidden" style='font-family: "Space Grotesk", "Noto Sans", sans-serif;'>
@@ -15,30 +27,115 @@
 <svg class="size-8" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
 <path d="M44 4H30.6666V17.3334H17.3334V30.6666H4V44H44V4Z" fill="currentColor"></path>
 </svg>
-<h2 class="text-white text-xl font-bold leading-tight tracking-[-0.015em]">JGJS Dev</h2>
+<h2 class="text-white text-xl font-bold leading-tight tracking-[-0.015em]">JGJS Dev.</h2>
 </div>
+<nav class="flex items-center gap-6">
+<a class="text-[#92adc9] hover:text-white transition-colors text-base font-medium" href="#">Inicio</a>
+<a class="text-[#92adc9] hover:text-white transition-colors text-base font-medium" href="#">Proyectos</a>
+<a class="text-[#92adc9] hover:text-white transition-colors text-base font-medium" href="#">Sobre mí</a>
+<a class="text-[#92adc9] hover:text-white transition-colors text-base font-medium" href="#">Contacto</a>
+</nav>
 </header>
-<div class="flex flex-1 flex-col items-center justify-center text-center px-4 py-5">
-<div class="flex flex-col items-center gap-6 w-full max-w-lg">
-<div class="p-3 rounded-full bg-[#1e2d3b]">
-<span class="material-symbols-outlined text-white text-4xl"> construction </span>
+<main class="flex-1">
+<section class="text-center py-20 px-4">
+<h1 class="text-white text-6xl font-bold tracking-tighter mb-4">Innovación y Desarrollo a tu Alcance</h1>
+<p class="text-[#92adc9] text-xl max-w-3xl mx-auto">
+            Explora mis proyectos más recientes y descubre cómo la tecnología puede transformar ideas en realidad.
+          </p>
+</section>
+<section class="py-12 px-4">
+<h2 class="text-white text-4xl font-bold text-center mb-12">Proyectos Destacados de GitHub</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+<div class="project-card bg-[#1e2d3b] rounded-lg overflow-hidden flex flex-col">
+<div class="p-6 flex-grow">
+<div class="flex items-center justify-between mb-4">
+<h3 class="text-white text-2xl font-bold">Proyectos Comunidad NethServer</h3>
+<a class="text-white hover:text-[#1173d4] transition-colors" href="#">
+<svg class="feather feather-github" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+</svg>
+</a>
 </div>
-<h1 class="text-white text-5xl font-bold tracking-tighter">Nuestro sitio está en construcción</h1>
-<p class="text-[#92adc9] text-lg max-w-md">
-              Estamos trabajando para brindarte una nueva y sorprendente experiencia. ¡Mantente atento a las actualizaciones!
-            </p>
-<form class="w-full flex flex-col sm:flex-row items-center gap-3 mt-4">
-<label class="sr-only" for="email">Correo electrónico</label>
-<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-md text-white focus:outline-0 focus:ring-2 focus:ring-[#1173d4] border border-[#324d67] bg-[#192633] h-12 placeholder:text-[#92adc9] p-3 text-base font-normal leading-normal" id="email" placeholder="Tu correo electrónico" type="email"/>
-<button class="flex w-full sm:w-auto min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-md h-12 px-6 bg-[#1173d4] text-white text-base font-bold leading-normal tracking-[0.015em] hover:bg-blue-600 transition-colors">
-<span class="truncate">Notifícame</span>
-</button>
-</form>
+<p class="text-[#92adc9] mb-4">Contribuciones y desarrollos dentro del ecosistema de la comunidad NethServer, enfocados en soluciones de servidor open-source.</p>
+<div class="flex flex-wrap gap-2">
+<span class="bg-[#1173d4] text-white text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">NethServer</span>
+<span class="bg-[#1173d4] text-white text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Linux</span>
+<span class="bg-[#1173d4] text-white text-xs font-semibold px-2.5 py-0.5 rounded-full">Open-Source</span>
 </div>
 </div>
-<footer class="flex justify-center px-5 py-8">
+<div class="bg-[#192633] px-6 py-4 flex justify-between items-center text-sm text-[#92adc9]">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-base">star</span>
+<span>1.2k</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-base">call_split</span>
+<span>345</span>
+</div>
+</div>
+</div>
+<div class="project-card bg-[#1e2d3b] rounded-lg overflow-hidden flex flex-col">
+<div class="p-6 flex-grow">
+<div class="flex items-center justify-between mb-4">
+<h3 class="text-white text-2xl font-bold">Proyectos Locales (Punto Fijo - Venezuela)</h3>
+<a class="text-white hover:text-[#1173d4] transition-colors" href="#">
+<svg class="feather feather-github" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+</svg>
+</a>
+</div>
+<p class="text-[#92adc9] mb-4">Desarrollo de soluciones tecnológicas y aplicaciones adaptadas a las necesidades y problemáticas de la región de Punto Fijo, Venezuela.</p>
+<div class="flex flex-wrap gap-2">
+<span class="bg-[#1173d4] text-white text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Web</span>
+<span class="bg-[#1173d4] text-white text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Móvil</span>
+<span class="bg-[#1173d4] text-white text-xs font-semibold px-2.5 py-0.5 rounded-full">Punto Fijo</span>
+</div>
+</div>
+<div class="bg-[#192633] px-6 py-4 flex justify-between items-center text-sm text-[#92adc9]">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-base">star</span>
+<span>980</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-base">call_split</span>
+<span>210</span>
+</div>
+</div>
+</div>
+<div class="project-card bg-[#1e2d3b] rounded-lg overflow-hidden flex flex-col">
+<div class="p-6 flex-grow">
+<div class="flex items-center justify-between mb-4">
+<h3 class="text-white text-2xl font-bold">Proyecto Gamma</h3>
+<a class="text-white hover:text-[#1173d4] transition-colors" href="#">
+<svg class="feather feather-github" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+</svg>
+</a>
+</div>
+<p class="text-[#92adc9] mb-4">El Proyecto Gamma explora nuevas fronteras en la inteligencia artificial y el aprendizaje automático.</p>
+<div class="flex flex-wrap gap-2">
+<span class="bg-[#1173d4] text-white text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Python</span>
+<span class="bg-[#1173d4] text-white text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">TensorFlow</span>
+<span class="bg-[#1173d4] text-white text-xs font-semibold px-2.5 py-0.5 rounded-full">Flask</span>
+</div>
+</div>
+<div class="bg-[#192633] px-6 py-4 flex justify-between items-center text-sm text-[#92adc9]">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-base">star</span>
+<span>2.5k</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-base">call_split</span>
+<span>500</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer class="flex justify-center px-5 py-8 mt-16 border-t border-[#1e2d3b]">
 <div class="flex max-w-[960px] flex-1 flex-col items-center gap-4 text-center">
-<p class="text-[#92adc9] text-sm">© 2025 JGJS Dev. Todos los derechos reservados.</p>
+<p class="text-[#92adc9] text-sm">© 2024 JGJS Dev. Todos los derechos reservados.</p>
 <div class="flex items-center gap-4">
 <a class="text-[#92adc9] hover:text-white transition-colors" href="#">
 <svg fill="currentColor" height="24px" viewBox="0 0 256 256" width="24px" xmlns="http://www.w3.org/2000/svg">
@@ -60,5 +157,4 @@
 </footer>
 </div>
 </div>
-
 </body></html>
