@@ -1,313 +1,38 @@
 <!DOCTYPE html>
-<html lang="es">
+<html>
 <head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700;900&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
-    <title>JGJS Dev.</title>
-    <link rel="icon" href="data:image/x-icon;base64," type="image/x-icon">
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
-    <style>
-        body {
-            font-family: "Space Grotesk", "Noto Sans", sans-serif;
-            background-color: #111a22;
-            color: white;
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
-        }
-        .project-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        }
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        header {
-            border-bottom: 1px solid transparent;
-            padding: 20px 0;
-            position: relative;
-        }
-        
-        /* Contenedor para botones flotantes */
-        .floating-buttons {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-            gap: 15px;
-            z-index: 50;
-        }
-        
-        /* Widget de Ko-fi personalizado */
-        .custom-kofi-widget {
-            background-color: #2a4d6d;
-            color: white;
-            padding: 12px 16px;
-            border-radius: 30px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            text-decoration: none;
-            font-weight: 500;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s ease;
-        }
-        
-        .custom-kofi-widget:hover {
-            background-color: #3a5d7d;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
-        }
-        
-        /* Botón de idioma */
-        #language-btn {
-            background-color: #2a4d6d;
-            color: white;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s ease;
-        }
-        
-        #language-btn:hover {
-            background-color: #3a5d7d;
-            transform: scale(1.1);
-        }
-        
-        /* Ajustes responsivos */
-        @media (max-width: 1024px) {
-            .container {
-                padding: 0 15px;
-            }
-            
-            #main-title {
-                font-size: 2.8rem;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            header {
-                flex-direction: row;
-                padding: 15px 0;
-            }
-            
-            #main-title {
-                font-size: 2.3rem;
-                line-height: 1.2;
-            }
-            
-            .project-card {
-                margin-bottom: 20px;
-            }
-            
-            .floating-buttons {
-                bottom: 15px;
-                right: 15px;
-            }
-            
-            #language-btn {
-                width: 55px;
-                height: 55px;
-            }
-            
-            .custom-kofi-widget {
-                padding: 10px 14px;
-                font-size: 0.9rem;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            #main-title {
-                font-size: 1.8rem;
-            }
-            
-            .text-lg {
-                font-size: 1rem;
-            }
-            
-            .project-card {
-                padding: 15px;
-            }
-            
-            .flex-wrap.gap-2 {
-                justify-content: center;
-            }
-            
-            footer {
-                padding: 20px 0;
-            }
-            
-            .floating-buttons {
-                bottom: 10px;
-                right: 10px;
-            }
-            
-            #language-btn {
-                width: 50px;
-                height: 50px;
-            }
-            
-            .custom-kofi-widget {
-                padding: 8px 12px;
-                font-size: 0.85rem;
-            }
-            
-            .custom-kofi-widget span {
-                font-size: 1.1rem;
-            }
-        }
-    </style>
+  <!--
+    If you are serving your web app in a path other than the root, change the
+    href value below to reflect the base path you are serving from.
+
+    The path provided below has to start and end with a slash "/" in order for
+    it to work correctly.
+
+    For more details:
+    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
+
+    This is a placeholder for base href that will be replaced by the value of
+    the `--base-href` argument provided to `flutter build`.
+  -->
+  <base href="/">
+
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="Official web JGJS Dev">
+
+  <!-- iOS meta tags & icons -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="jgjsdev">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png"/>
+
+  <title>jgjsdev</title>
+  <link rel="manifest" href="manifest.json">
 </head>
 <body>
-    <div class="container">
-        <header class="flex items-center justify-between">
-            <div class="flex items-center gap-4 text-white">
-                <svg class="size-8" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M44 4H30.6666V17.3334H17.3334V30.6666H4V44H44V4Z" fill="currentColor"></path>
-                </svg>
-                <h2 class="text-white text-xl font-bold leading-tight tracking-[-0.015em]">JGJS Dev.</h2>
-            </div>
-            
-            <!-- Se ha eliminado el menú de navegación -->
-        </header>
-
-        <main class="flex-1">
-            <section class="text-center py-8 md:py-20 px-4">
-                <h1 class="text-white text-4xl md:text-6xl font-bold tracking-tighter mb-4" id="main-title">Innovación y Desarrollo a tu Alcance</h1>
-                <p class="text-[#92adc9] text-lg md:text-xl max-w-3xl mx-auto" id="main-subtitle">
-                    Explora mis proyectos más recientes y descubre cómo la tecnología puede transformar ideas en realidad.
-                </p>
-            </section>
-            
-            <section class="py-8 md:py-12 px-4">
-                <h2 class="text-white text-3xl md:text-4xl font-bold text-center mb-8 md:mb-12" id="projects-title">Proyectos Destacados de GitHub</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto">
-                    <div class="project-card bg-[#1e2d3b] rounded-lg overflow-hidden flex flex-col">
-                        <div class="p-6 flex-grow">
-                            <div class="flex items-start justify-between mb-4">
-                                <h3 class="text-white text-xl md:text-2xl font-bold" id="nethserver-project-title">Proyecto Comunidad Nethserver</h3>
-                                <a class="text-white hover:text-[#1173d4] transition-colors" href="https://github.com/jgjimenez/nethbridge_mobile_ns8" target="_blank" rel="noopener noreferrer">
-                                    <svg class="feather feather-github" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 极 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-                                    </svg>
-                                </a>
-                            </div>
-                            <p class="text-[极#92adc9] mb-4 text-sm md:text-base" id="nethserver-desc">Su puente móvil para administrar NethServer 8 desde cualquier lugar.</p>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="bg-[#2a4d6d] text-white text-xs font-semibold px-2 py-0.5 rounded-full">Flutter</span>
-                                <span class="bg-[#2a4d6d] text-white text-xs font-semibold px-2 py-0.5 rounded-full">Android</span>
-                                <span class="bg-[#2a4d6d] text-white text-xs font-semibold px-2 py-0.5 rounded-full">API</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="project-card bg-[#1e2d3b] rounded-lg overflow-hidden flex flex-col">
-                        <div class="p-6 flex-grow">
-                            <div class="flex items-start justify-between mb-4">
-                                <h3 class="text-white text-xl md:text-2xl font-bold leading-tight" id="local-projects-title">Proyectos Locales<br/>(Punto Fijo - Venezuela)</h3>
-                                <a class="text-white hover:text-[#1173d4] transition-colors" href="#">
-                                    <svg class="feather feather-github" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-                                    </svg>
-                                </a>
-                            </div>
-                            <p class="text-[#92adc9] mb-4 text-sm md:text-base" id="local-projects-desc">Descripción de los proyectos locales, enfocados en la solución de problemas específicos con una arquitectura innovadora.</p>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="bg-[#2a4d6d] text-white text-xs font-semibold px-2 py-0.5 rounded-full">Flutter</span>
-                                <span class="bg-[#2a4d6d] text-white text-xs font-semibold px-2 py-0.5 rounded-full">Android</span>
-                                <span class="bg-[#2a4d6d] text-white text-xs font-semibold px-2 py-0.5 rounded-full">SQLite</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </main>
-
-        <footer class="flex justify-center px-5 py-8 mt-8 md:mt-16 border-t border-[#1e2d3b]">
-            <div class="flex max-w-[960px] flex-1 flex-col items-center gap-4 text-center">
-                <p class="text-[#92adc9] text-sm" id="copyright-text">© 2024 JGJS Dev. Todos los derechos reservados.</p>
-            </div>
-        </footer>
-    </div>
-
-    <!-- Contenedor para botones flotantes -->
-    <div class="floating-buttons">
-        <!-- Widget de Ko-fi personalizado -->
-        <a href="https://ko-fi.com/josegjimenezs" target="_blank" class="custom-kofi-widget">
-            <span class="material-symbols-outlined">favorite</span>
-            <span>Support me</span>
-        </a>
-        
-        <!-- Botón de idioma -->
-        <button id="language-btn" class="transition-colors duration-300 ease-in-out">
-            <span class="material-symbols-outlined text-2xl">language</span>
-        </button>
-    </div>
-
-    <script>
-        const translations = {
-            es: {
-                mainTitle: "Innovación y Desarrollo a tu Alcance",
-                mainSubtitle: "Explora mis proyectos más recientes y descubre cómo la tecnología puede transformar ideas en realidad.",
-                projectsTitle: "Proyectos Destacados de GitHub",
-                nethserverProjectTitle: "Proyecto Comunidad Nethserver",
-                nethserverDesc: "Su puente móvil para administrar NethServer 8 desde cualquier lugar.",
-                localProjectsTitle: "Proyectos Locales<br/>(Punto Fijo - Venezuela)",
-                localProjectsDesc: "Descripción de los proyectos locales, enfocados en la solución de problemas específicos con una arquitectura innovadora.",
-                copyrightText: "© 2024 JGJS Dev. Todos los derechos reservados.",
-                supportText: "Apóyame"
-            },
-            en: {
-                mainTitle: "Innovation and Development within Your Reach",
-                mainSubtitle: "Explore my most recent projects and discover how technology can turn ideas into reality.",
-                projectsTitle: "Featured GitHub Projects",
-                nethserverProjectTitle: "Nethserver Community Project",
-                nethserverDesc: "Your mobile bridge to manage NethServer 8 from anywhere.",
-                localProjectsTitle: "Local Projects<br/>(Punto Fijo - Venezuela)",
-                localProjectsDesc: "Description of local projects, focused on solving specific problems with an innovative architecture.",
-                copyrightText: "© 2024 JGJS Dev. All rights reserved.",
-                supportText: "Support me"
-            }
-        };
-
-        const languageBtn = document.getElementById('language-btn');
-        const kofiWidget = document.querySelector('.custom-kofi-widget span:last-child');
-        let currentLang = 'es';
-
-        function updateContent() {
-            const langData = translations[currentLang];
-            document.getElementById('main-title').textContent = langData.mainTitle;
-            document.getElementById('main-subtitle').textContent = langData.mainSubtitle;
-            document.getElementById('projects-title').textContent = langData.projectsTitle;
-            document.getElementById('nethserver-project-title').textContent = langData.nethserverProjectTitle;
-            document.getElementById('nethserver-desc').textContent = langData.nethserverDesc;
-            document.getElementById('local-projects-title').innerHTML = langData.localProjectsTitle;
-            document.getElementById('local-projects-desc').textContent = langData.localProjectsDesc;
-            document.getElementById('copyright-text').textContent = langData.copyrightText;
-            kofiWidget.textContent = langData.supportText;
-        }
-
-        languageBtn.addEventListener('click', () => {
-            currentLang = currentLang === 'es' ? 'en' : 'es';
-            updateContent();
-        });
-
-        updateContent(); // Carga el contenido inicial al cargar la página
-    </script>
+  <script src="flutter_bootstrap.js" async></script>
 </body>
 </html>
