@@ -262,6 +262,7 @@ body {
 .support-card .btn {
   margin-top: auto;
 }
+
 /* === Download Section === */
 .download-section {
   padding: 4rem 0 3rem;
@@ -270,9 +271,10 @@ body {
 
 .download-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
   margin-top: 2.5rem;
+  justify-items: center;
 }
 
 .download-card {
@@ -285,6 +287,8 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  min-height: 320px;
+  justify-content: space-between;
 }
 
 .download-card:hover:not(.ios-card) {
@@ -334,6 +338,7 @@ body {
   cursor: not-allowed;
   pointer-events: none;
 }
+
 /* === Footer === */
 .footer {
   padding: 2rem 0 1.5rem;
@@ -363,6 +368,11 @@ body {
   }
   .hero__cta {
     justify-content: center;
+  }
+
+  /* Ajuste para descarga en móviles */
+  .download-grid {
+    grid-template-columns: 1fr;
   }
 }
 
