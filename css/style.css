@@ -317,17 +317,6 @@ body {
   font-size: 1rem;
 }
 
-/* Android icon color */
-.android-icon svg path {
-  fill: #3DDC84;
-}
-
-/* iOS card */
-.ios-card {
-  opacity: 0.85;
-  cursor: not-allowed;
-}
-
 .ios-icon svg path {
   stroke: #A0A0A0;
 }
