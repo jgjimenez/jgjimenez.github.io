@@ -43,7 +43,7 @@ body {
 .logo {
   width: 60px;
   height: 60px;
-  border-radius: 12px; /* Esquinas redondeadas (no circular) */
+  border-radius: 12px; 
   object-fit: cover;
   border: 2px solid rgba(0, 0, 0, 0.08);
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
