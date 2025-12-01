@@ -274,12 +274,11 @@ body {
   grid-template-columns: 1fr 1fr;
   gap: 2.5rem;
   margin-top: 2.5rem;
-  justify-items: center;
 }
 
 .download-card {
   background: var(--card-bg);
-  padding: 2rem;
+  padding: 2.2rem 2rem;
   border-radius: 16px;
   text-align: center;
   transition: var(--transition);
@@ -287,8 +286,8 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-height: 320px;
-  justify-content: space-between;
+  min-height: 360px;
+  justify-content: center;
 }
 
 .download-card:hover:not(.ios-card) {
@@ -297,28 +296,32 @@ body {
 }
 
 .download-icon {
-  margin-bottom: 1.2rem;
-  transition: transform 0.3s ease;
+  margin: 0 0 1.4rem 0;
 }
 
-.download-card:hover .download-icon {
-  transform: scale(1.1);
+.download-icon img {
+  width: 96px;
+  height: 96px;
+  display: block;
+  object-fit: contain;
 }
 
 .download-card h3 {
   font-size: 1.4rem;
-  margin-bottom: 0.8rem;
+  margin: 0 0 0.8rem 0;
   color: var(--text-primary);
 }
 
 .download-card p {
   color: var(--text-secondary);
-  margin-bottom: 1.2rem;
+  margin: 0 0 1.4rem 0;
   font-size: 1rem;
+  line-height: 1.5;
 }
 
-.ios-icon svg path {
-  stroke: #A0A0A0;
+.ios-card {
+  opacity: 0.85;
+  cursor: not-allowed;
 }
 
 .btn--disabled {
@@ -362,6 +365,10 @@ body {
   /* Ajuste para descarga en móviles */
   .download-grid {
     grid-template-columns: 1fr;
+  }
+  .download-card {
+    min-height: 340px;
+    padding: 2rem 1.5rem;
   }
 }
 
