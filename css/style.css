@@ -262,7 +262,78 @@ body {
 .support-card .btn {
   margin-top: auto;
 }
+/* === Download Section === */
+.download-section {
+  padding: 4rem 0 3rem;
+  background-color: var(--bg-light);
+}
 
+.download-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2.5rem;
+}
+
+.download-card {
+  background: var(--card-bg);
+  padding: 2rem;
+  border-radius: 16px;
+  text-align: center;
+  transition: var(--transition);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.download-card:hover:not(.ios-card) {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+.download-icon {
+  margin-bottom: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+.download-card:hover .download-icon {
+  transform: scale(1.1);
+}
+
+.download-card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 0.8rem;
+  color: var(--text-primary);
+}
+
+.download-card p {
+  color: var(--text-secondary);
+  margin-bottom: 1.2rem;
+  font-size: 1rem;
+}
+
+/* Android icon color */
+.android-icon svg path {
+  fill: #3DDC84;
+}
+
+/* iOS card */
+.ios-card {
+  opacity: 0.85;
+  cursor: not-allowed;
+}
+
+.ios-icon svg path {
+  stroke: #A0A0A0;
+}
+
+.btn--disabled {
+  background: #e0e0e0;
+  color: #888;
+  cursor: not-allowed;
+  pointer-events: none;
+}
 /* === Footer === */
 .footer {
   padding: 2rem 0 1.5rem;
