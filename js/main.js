@@ -62,7 +62,7 @@ const translations = {
     android_btn: "Download APK",
     ios_label: "iOS",
     ios_desc: "Coming soon to the App Store.",
-ios_btn: "Coming Soon",
+    ios_btn: "Coming Soon",
     footer_text: "NethSecure GO is an independent community project. It is not affiliated with, sponsored, or endorsed by NethServer or its developers. © 2025 <a href=\"https://github.com/jgjsdev\">JGJS DEV</a> · Made with ❤️ for free software."
   }
 };
