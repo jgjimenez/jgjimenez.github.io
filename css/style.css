@@ -8,6 +8,7 @@
   --transition: all 0.3s ease;
 }
 
+/* === Base === */
 body {
   background-color: var(--bg-light);
   color: var(--text-primary);
@@ -20,7 +21,7 @@ body {
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1.5rem; 
+  padding: 0 1.5rem;
 }
 
 /* === Header === */
@@ -33,7 +34,7 @@ body {
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-  min-height: 60px; 
+  min-height: 80px;
 }
 
 .header__inner {
@@ -69,61 +70,6 @@ body {
   font-size: 0.9rem;
   font-weight: 500;
   white-space: nowrap;
-}
-
-/* === About Section === */
-.about-section {
-  background-color: var(--bg-light);
-}
-
-.about-content {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 3rem;
-  align-items: center;
-}
-
-.about-text {
-  color: var(--text-secondary);
-  line-height: 1.7;
-  font-size: 1.05rem;
-}
-
-.about-text p {
-  margin-bottom: 1rem;
-}
-
-.about-image img {
-  width: 100%;
-  max-width: 300px;
-  border-radius: 16px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-  display: block;
-  margin: 0 auto;
-}
-
-/* === Lang Toggle === */
-.lang-toggle {
-  display: flex;
-  gap: 0.4rem;
-}
-
-.lang-btn {
-  background: none;
-  border: 1px solid var(--text-secondary);
-  color: var(--text-secondary);
-  padding: 0.2rem 0.5rem;
-  border-radius: 4px;
-  font-size: 0.8rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: var(--transition);
-}
-
-.lang-btn.active {
-  background: var(--accent);
-  color: white;
-  border-color: var(--accent);
 }
 
 /* === Hero Section === */
@@ -341,10 +287,6 @@ body {
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
 }
 
-.download-icon {
-  margin: 0 0 1.4rem 0;
-}
-
 .download-icon img {
   width: 96px;
   height: 96px;
@@ -354,13 +296,13 @@ body {
 
 .download-card h3 {
   font-size: 1.4rem;
-  margin: 0 0 0.8rem 0;
+  margin: 0 0 0.8rem;
   color: var(--text-primary);
 }
 
 .download-card p {
   color: var(--text-secondary);
-  margin: 0 0 1.4rem 0;
+  margin: 0 0 1.4rem;
   font-size: 1rem;
   line-height: 1.5;
 }
@@ -375,6 +317,61 @@ body {
   color: #888;
   cursor: not-allowed;
   pointer-events: none;
+}
+
+/* === About Section === */
+.about-section {
+  background-color: var(--bg-light);
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.about-text {
+  color: var(--text-secondary);
+  line-height: 1.7;
+  font-size: 1.05rem;
+}
+
+.about-text p {
+  margin-bottom: 1rem;
+}
+
+.about-image img {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  display: block;
+  margin: 0 auto;
+}
+
+/* === Lang Toggle === */
+.lang-toggle {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.lang-btn {
+  background: none;
+  border: 1px solid var(--text-secondary);
+  color: var(--text-secondary);
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.lang-btn.active {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
 }
 
 /* === Footer === */
@@ -397,22 +394,20 @@ body {
 
 /* === Responsive Breakpoints === */
 
-/* Tablet y pantallas medianas */
+/* Hasta tablet */
 @media (max-width: 900px) {
-  .hero__grid {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-  .hero__text-content {
-    text-align: center;
-  }
-  .hero__cta {
-    justify-content: center;
-  }
-
+  .hero__grid,
   .about-content {
     grid-template-columns: 1fr;
     text-align: center;
+  }
+
+  .hero__text-content {
+    text-align: center;
+  }
+
+  .hero__cta {
+    justify-content: center;
   }
 
   .about-image img {
@@ -424,20 +419,29 @@ body {
   }
 }
 
-/* Móviles grandes y pequeños */
+/* Móviles (hasta 768px) */
 @media (max-width: 768px) {
   .header__inner {
     flex-wrap: wrap;
     justify-content: center;
   }
+
   .header__tagline {
     text-align: center;
     flex-basis: 100%;
     margin-top: 0.5rem;
+    white-space: normal;
   }
 
+  /* ✅ Corrección clave: espacio para header alto en móvil */
   .hero {
-    padding-top: 9.5rem; /* ✅ Corrección clave: evita que el video quede bajo el header */
+    padding-top: 10.5rem;
+  }
+
+  /* Empujar contenido del hero para mejor separación visual */
+  .hero__text-content,
+  .hero__video-wrapper {
+    margin-top: 1.5rem;
   }
 
   .container {
@@ -449,7 +453,7 @@ body {
   }
 }
 
-/* Móviles muy pequeños (ej. iPhone SE) */
+/* Móviles pequeños (hasta 480px) */
 @media (max-width: 480px) {
   .logo {
     width: 70px;
@@ -472,5 +476,10 @@ body {
   .hero__badge {
     font-size: 0.8rem;
     padding: 0.25rem 0.9rem;
+  }
+
+  .download-card {
+    min-height: 320px;
+    padding: 2rem 1.25rem;
   }
 }
