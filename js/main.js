@@ -21,6 +21,9 @@ const translations = {
     contribute_title: "🛠️ Contribuye",
     contribute_text: "Reporta bugs, sugiere funciones o envía tu código.",
     contribute_btn: "Contribuir en GitHub",
+    gofundme_title: "🚀 GoFundMe",
+    gofundme_text: "Ayúdame a mejorar mi espacio de trabajo para seguir desarrollando software libre.",
+    gofundme_btn: "Donar en GoFundMe",
     download_title: "Descarga <span class=\"highlight\">NethSecure GO</span>",
     about_title: "¿Quién soy?",
     about_text: "<p>Hola, soy <strong>José Gregorio Jiménez Sánchez</strong>, desarrollador de software y padre de dos hijos desde Venezuela.</p><p>Dedico mi tiempo a crear herramientas de código abierto para comunidades como <strong>NethServer</strong>, con el objetivo de facilitar la seguridad y gestión de servidores a usuarios de todo el mundo.</p><p>Mi trabajo se realiza desde un espacio muy humilde, pero con un compromiso firme con la calidad, la ética y el apoyo al software libre.</p><p>Cada donación me ayuda a mejorar mi workspace, seguir formándome y dedicar más horas a proyectos que beneficien a la comunidad.</p>",
@@ -54,6 +57,9 @@ const translations = {
     contribute_title: "🛠️ Contribute",
     contribute_text: "Report bugs, suggest features, or submit your code.",
     contribute_btn: "Contribute on GitHub",
+    gofundme_title: "🚀 GoFundMe",
+    gofundme_text: "Help me upgrade my workspace so I can keep building free software.",
+    gofundme_btn: "Donate on GoFundMe",
     download_title: "Download <span class=\"highlight\">NethSecure GO</span>",
     about_title: "About Me",
     about_text: "<p>Hello! I'm <strong>José Gregorio Jiménez Sánchez</strong>, a software developer and father of two from Venezuela.</p><p>I dedicate my time to building open-source tools for communities like <strong>NethServer</strong>, with the goal of making server security and management accessible to users worldwide.</p><p>I work from a very humble setup, but with a strong commitment to quality, ethics, and supporting free software.</p><p>Every donation helps me improve my workspace, continue my training in technologies like Flutter and cybersecurity, and dedicate more hours to projects that benefit the community.</p>",
@@ -87,15 +93,6 @@ function setLanguage(lang) {
       el.innerHTML = translations[lang][key];
     }
   });
-
-  // Actualizar enlace de compartir
-  const shareLink = document.querySelector('.share-link');
-  if (shareLink) {
-    const text = lang === 'es' 
-      ? '¡Descubre NethSecure GO, el cliente comunitario para NethSecurity!'
-      : 'Check out NethSecure GO, a community client for NethSecurity!';
-    shareLink.href = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=https%3A%2F%2Fjgjsdev.github.io&via=jgjsdev`;
-  }
 
   // Botones de idioma
   document.querySelectorAll('.lang-btn').forEach(btn => {
