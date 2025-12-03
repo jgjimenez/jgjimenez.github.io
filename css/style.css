@@ -231,6 +231,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 200px;
+  align-items: center; /* ✅ Asegura que logos/botones se centren */
 }
 
 .support-card:hover {
@@ -483,7 +484,6 @@ body {
 }
 
 /* === Ajuste específico para escritorio (PC) === */
-/* Evita que el badge "Community Client" quede pegado al header */
 @media (min-width: 901px) {
   .hero {
     padding-top: 9rem;
