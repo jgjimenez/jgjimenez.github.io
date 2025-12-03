@@ -433,12 +433,10 @@ body {
     white-space: normal;
   }
 
-  /* ✅ Corrección clave: espacio para header alto en móvil */
   .hero {
     padding-top: 10.5rem;
   }
 
-  /* Empujar contenido del hero para mejor separación visual */
   .hero__text-content,
   .hero__video-wrapper {
     margin-top: 1.5rem;
@@ -481,5 +479,17 @@ body {
   .download-card {
     min-height: 320px;
     padding: 2rem 1.25rem;
+  }
+}
+
+/* === Ajuste específico para escritorio (PC) === */
+/* Evita que el badge "Community Client" quede pegado al header */
+@media (min-width: 901px) {
+  .hero {
+    padding-top: 9rem;
+  }
+
+  .hero__text-content {
+    margin-top: 1.5rem;
   }
 }
