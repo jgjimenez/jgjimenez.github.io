@@ -83028,7 +83028,7 @@ n=A
 m=J
 l=B.au
 s=2
-return A.V($.Gi().jP(0,"assets/assets/cv/curriculum.pdf"),$async$$0)
+return A.V($.Gi().jP(0,"assets/cv/curriculum.pdf"),$async$$0)
 case 2:p=o.createObjectURL(n.aDL([m.qD(l.gcd(b))],"application/pdf"))
 p.toString
 q=document.createElement("a")
