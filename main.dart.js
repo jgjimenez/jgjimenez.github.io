@@ -83249,16 +83249,16 @@ A.a_n.prototype={
 $0(){return A.ma(this.a,!1).dE()},
 $S:0}
 A.Nj.prototype={
-L(a){var s,r,q,p=null,o="Support me",n="Apoyar",m=A.bm(a,p,t.w).w.a.a<900,l=m?20:60,k=m?60:100,j=this.c,i=A.bv(j?"Support my work":"Apoya mi trabajo",p,p,p,B.ff,p,p),h=j?"Fuel my open source projects by buying me a coffee.":"Impulsa mis proyectos de c\xf3digo abierto invit\xe1ndome un caf\xe9.",g=j?o:n
-h=A.as1(B.Cu,g,h,"assets/images/cafe.png",new A.adx(),"Buy Me a Coffee")
-g=j?"Make a direct and secure contribution to support free software development.":"Haz una contribuci\xf3n directa y segura para apoyar el desarrollo de software libre."
-s=j?o:n
-g=A.as1(B.el,s,g,"assets/images/paypal.png",new A.ady(this,a),"PayPal")
-s=j?"Cryptocurrency":"Criptomonedas"
-r=j?"Decentralized contributions (Binance/Kontigo) to upgrade my workspace.":"Aportes descentralizados (Binance/Kontigo) para mejorar mi entorno de trabajo."
-j=j?o:n
-q=t.p
-return A.e4(p,A.cI(A.c([i,B.c4,A.BF(B.fk,A.c([h,g,A.as1(B.j9,j,r,"assets/images/crypto.png",new A.adz(this,a),s)],q),30,30)],q),B.a0,B.J),B.v,p,p,p,p,p,p,new A.at(l,k,l,k),p,p,p)}}
+L(a){var s,r,q=null,p="Support me",o="Apoyar",n=A.bm(a,q,t.w).w.a.a<900,m=n?20:60,l=n?60:100,k=this.c,j=A.bv(k?"Support my work":"Apoya mi trabajo",q,q,q,B.ff,q,q),i=k?"Buy Me a Coffee":"Inv\xedtame un caf\xe9",h=k?"Fuel my open source projects by buying me a coffee.":"Impulsa mis proyectos de c\xf3digo abierto invit\xe1ndome un caf\xe9.",g=k?p:o
+i=A.as1(B.Cu,g,h,"assets/images/cafe.png",new A.adx(),i)
+h=k?"Make a direct and secure contribution to support free software development.":"Haz una contribuci\xf3n directa y segura para apoyar el desarrollo de software libre."
+g=k?p:o
+h=A.as1(B.el,g,h,"assets/images/paypal.png",new A.ady(this,a),"PayPal")
+g=k?"Cryptocurrency":"Criptomonedas"
+s=k?"Decentralized contributions (Binance/Kontigo) to upgrade my workspace.":"Aportes descentralizados (Binance/Kontigo) para mejorar mi entorno de trabajo."
+k=k?p:o
+r=t.p
+return A.e4(q,A.cI(A.c([j,B.c4,A.BF(B.fk,A.c([i,h,A.as1(B.j9,k,s,"assets/images/crypto.png",new A.adz(this,a),g)],r),30,30)],r),B.a0,B.J),B.v,q,q,q,q,q,q,new A.at(m,l,m,l),q,q,q)}}
 A.adx.prototype={
 $0(){var s=window
 s.toString
